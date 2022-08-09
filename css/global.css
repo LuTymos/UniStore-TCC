@@ -25,11 +25,13 @@ header{
     padding: 20px 30px;
 }
 
-header .logo{
-    width: 200px;
+
+header .logo a{
+    text-decoration: none;
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 200px;
 }
 
 header .logo img{
