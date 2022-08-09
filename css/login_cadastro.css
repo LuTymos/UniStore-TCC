@@ -1,0 +1,64 @@
+
+.logo a{ 
+    margin: 0 auto;
+}
+
+.top{
+    width: 80%;
+    margin: 20px auto 40px auto;
+}
+
+.top a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.top img{
+    width: 30px;
+    margin-right: 15px;
+}
+
+.top a p{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.login{
+    width: 80%;
+}
+
+
+.login h1{
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.login form{
+    margin: 0 auto;
+    width: 280px;
+}
+
+.login form input[type="text"],.login form input[type="password"]{
+    
+    width: 100%;
+    display: block;
+    border: none;
+    margin: 0 0 15px 0;
+    background-color: transparent;
+    border-bottom: 2px solid #112B3C;
+}
+
+.login form input[type="button"]{
+    height: 30px;
+    width: 180px;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    background-color: #112B3C;
+    color: #EFEFEF;
+    border-radius: 15px;
+    margin-top: 40px;
+}
