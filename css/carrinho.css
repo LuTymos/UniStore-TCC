@@ -1,0 +1,232 @@
+.container{
+    max-width: 1200px;
+    padding: 0 3%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container1{
+    max-width: 1000px;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+.btn{
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F66B0E;
+    color: white;
+    text-align: center;
+}
+
+div.box{
+    width: 50%;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+    border-bottom: none;
+}
+
+div.box .itens{
+    width: 90%;
+    height: 270px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.box .itens .item{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    height: 70px;
+    align-items: center;
+}
+
+div.box .itens .item:not(:first-child){
+    margin-top: 50px;
+}
+
+div.box .itens .item .img-item{
+    width: 70px;
+    height: 70px;
+    background-color: #ccc;
+}
+
+div.box .itens .item p{
+    width: 300px;
+    margin: 0 10px;
+}
+
+div.box .itens .item .grupo2{
+    display: flex;
+    flex-direction: column;
+}
+
+div.box .endereco{
+    background-color: #205375;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    border-radius:  0 0 15px 15px;
+    border-bottom: #205375;
+
+}
+
+div.box .endereco p{
+    color: white;
+    font-size: 15px;
+}
+div.box .endereco button{
+    color: white;
+    border: none;
+    background: transparent;
+    font-weight: bold;
+}
+
+
+
+
+
+div.box-valor-desktop{
+    align-self: flex-start;
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+    text-align: center;
+    padding: 15px ;
+}
+
+.btns{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.valor-mobile{
+    display: none;
+}
+
+.valor-mobile .btns{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.valor-mobile .btns .btn{
+    width: 48%;
+    margin-top: 20px;
+    height: 40px;
+}
+
+.btns .btn{
+    margin-top: 20px;
+    height: 40px;
+}
+
+section.more-products{
+    padding: 50px 0;
+}
+
+ div.container{
+    max-width: 1100px;
+}
+
+ .box-produto{
+    background-color: white;
+    width: 180px;
+    height: 260px;
+    margin: 0 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+ .box-produto div.img-box{
+    width: 95%;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+ .box-produto p{
+    text-align: left;
+    margin: 20px 0;
+}
+
+ .box-produto .preco{
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+/****SLICK SLIDER****/
+
+.slick-dotted ul{
+    display: block;
+	list-style-type: none;
+	text-align: center;
+	position: relative;
+	top:30px;
+}
+
+.slick-dotted li{
+	display: inline-block;
+	margin: 0 7px;
+}
+
+.slick-dotted button:focus{
+	outline: 0;
+}
+
+.slick-dotted li button{
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	color: #d8d8d8;
+	border-width: 0;
+	background: #d8d8d8;
+	opacity: 1;
+	cursor: pointer;
+}
+
+li.slick-active button{
+	background: #112B3C;
+	color: #373855;
+}
+.slick-slide:focus { outline: none; }
+
+/* fim slick slider */
+
+@media screen and (max-width:1000px) {
+    .box-valor-desktop{
+        display: none;
+    }
+    div.box{
+        width: 100%;
+    }
+    .valor-mobile{
+        display: block;
+    }
+}
+
+@media screen and (max-width:560px){
+    div.box .itens .item p{
+        width: 300px;
+        margin: 0 10px;
+        font-size: 14px;
+    }
+}
