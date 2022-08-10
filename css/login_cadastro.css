@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 
-.container{
+main .container{
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -64,12 +64,15 @@
     margin: 0 auto;
     display: block;
     border: none;
-    background-color: #112B3C;
+    background-color: #205375;
     color: #EFEFEF;
     border-radius: 15px;
     margin-top: 40px;
 }
-
+.login form input[type="button"]:hover{
+    background-color: #112B3C;
+    cursor: pointer;
+}
 .metodos{
     width: 80%;
     max-width: 350px;
@@ -95,6 +98,11 @@
     margin-right: 15px;
 }
 
+.log-icons img:hover{
+    width: 45px;
+    margin-right: 15px;
+}
+
 .log-icons h2{
     font-size: 22px;
     margin-top: 30px;
@@ -104,4 +112,33 @@
     color: #205375;
     text-decoration: underline;
     margin-left: 10px;
+}
+
+.log-icons h2 a:hover{
+    color: #112B3C;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 950px) {
+    main .container{
+        flex-direction: row;
+        margin-top: 100px;
+        align-items: flex-start;
+    }
+
+    .top{
+        display: none;
+    }
+
+    .metodos{
+        text-align: center;
+    }
+
+    .log-icons h2 a{
+        color: #205375;
+        text-decoration: underline;
+        margin-left: 10px;
+        display: block;
+    }
+
 }
