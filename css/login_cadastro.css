@@ -112,6 +112,7 @@ main .container{
     color: #205375;
     text-decoration: underline;
     margin-left: 10px;
+    display: block;
 }
 
 .log-icons h2 a:hover{
