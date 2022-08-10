@@ -3,6 +3,11 @@
     margin: 0 auto;
 }
 
+.container{
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 .top{
     width: 80%;
     margin: 20px auto 40px auto;
@@ -28,11 +33,13 @@
 
 .login{
     width: 80%;
+    max-width: 350px;
+    margin-bottom: 40px;
 }
 
 
 .login h1{
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 30px;
 }
 
@@ -61,4 +68,40 @@
     color: #EFEFEF;
     border-radius: 15px;
     margin-top: 40px;
+}
+
+.metodos{
+    width: 80%;
+    max-width: 350px;
+}
+
+.metodos h1{
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.metodos form{
+    margin: 0 auto;
+    width: 280px;
+}
+
+.log-icons{
+    width: 100%;
+    text-align: center;
+}
+
+.log-icons img{
+    width: 40px;
+    margin-right: 15px;
+}
+
+.log-icons h2{
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+.log-icons h2 a{
+    color: #205375;
+    text-decoration: underline;
+    margin-left: 10px;
 }
