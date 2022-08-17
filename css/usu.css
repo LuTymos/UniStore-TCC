@@ -53,7 +53,8 @@ section.container{
 }
 
 .info p{
-    margin: 5px 10px;
+    margin: 5px 5px;
+    font-size: 15px;
 }
 
 .topInfo{
@@ -68,11 +69,42 @@ section.container{
     font-weight: bold;
 }
 
+.opcoes{
+    display: flex;
+    width: 350px;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.com-vend, .alte{
+    padding: 20px 0;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    background-color: #205375;
+    color: #eeffff;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.com-vend img, .alte img{
+    width: 80px;
+}
+
+
 @media screen and (min-width:780px){
     .top{
         display: none;
     }
     .topSection{
         margin-top: 30px;
+    }
+    .infoUsu{
+        max-width: 660px;
+    }
+    section.container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
     }
 }
