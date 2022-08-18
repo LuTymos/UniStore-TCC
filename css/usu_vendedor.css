@@ -1,0 +1,175 @@
+section.container{
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0;
+}
+.top{
+    width: 80%;
+    margin: 20px auto 40px auto;
+}
+
+.top a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.top img{
+    width: 30px;
+    margin-right: 15px;
+}
+
+.top a p{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.topSection{
+    width: 100%;
+    padding: 0 5%;
+}
+
+.topSection p{
+    font-weight: bold;
+}
+
+    .h-itens{
+        margin: 20px 0;
+    }
+
+.infoUsu{
+    padding: 20px 5%;
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    background-color: #205375;
+    color: #eeffff;
+}
+
+.infovend{
+    width: 400px;
+    padding: 20px 5%;
+    margin-top: 30px;
+    height: 150px;
+    background-color: #205375;
+    color: #eeffff;
+}
+
+.box-produto{
+    background-color: white;
+    width: 180px;
+    height: 260px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.box-produto div.img-box{
+    width: 95%;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+.box-produto p{
+    text-align: left;
+    margin: 20px 0;
+}
+
+.box-produto .preco{
+    font-weight: bold;
+    margin-top: 20px;
+}
+.info{
+    display: flex;
+}
+
+.infos{
+    padding: 10px 0px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.info p{
+    margin: 5px 5px;
+    font-size: 15px;
+}
+
+.topInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topInfo a{
+    color: #eeffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.opcoes{
+    display: flex;
+    width: 350px;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.itensvend{
+width: 200px;
+margin: 0 auto;
+}
+
+.com-vend, .alte{
+    padding: 20px 0;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    background-color: #205375;
+    color: #eeffff;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.com-vend img, .alte img{
+    width: 80px;
+}
+
+
+@media screen and (min-width:780px){
+    .top{
+        display: none;
+    }
+    .topSection{
+        margin-top: 30px;
+    }
+    .infovend{
+    align-self: flex-start;
+    margin-top: 120px;
+    }
+    .infoUsu{
+        max-width: 660px;
+    }
+    
+    section.container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width:650px){
+    .itensvend{
+        width: 600px;
+        margin: 0 auto;
+        }
+}
+
+@media screen and (min-width:600px){
+    .itensvend{
+        width: 400px;
+        margin: 0 auto;
+        }
+}
