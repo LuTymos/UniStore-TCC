@@ -147,7 +147,8 @@ margin: 0 auto;
     }
     .infovend{
     align-self: flex-start;
-    margin-top: 120px;
+    margin-top: 20px;
+    align-self: center;
     }
     .infoUsu{
         max-width: 660px;
