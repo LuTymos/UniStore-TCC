@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniStore</title>
+    <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login_cadastro.css">
+    <link rel="stylesheet" href="css/cadproduto.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="img/Vetor UniStore.svg" alt=""><h2>UniStore</h2></a></div>
+    </header>
+    <main>
+        <div class="top"><a href="index.html"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
+        <div class="container">
+            <div class="login">
+                
+                <h1>Cadastrar produto:</h1>
+
+                <form action="">
+                <div class="item1">
+                    <label for="file" class="Flabel">Adicionar Fotos</label>
+                    <input type="file" id="file">
+                </div>
+                <div class="item2">
+                    <label for="Tproduto">Titulo do produto</label>
+                    <input type="text" id="Tproduto">
+                    <label for="tamanho">Tamanho</label>
+                    <select name="tamanhos" id="tamanho">
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="infantil">Infantil</option>
+                    </select>
+                    <label for="cor:">Cor</label>
+                    <input type="text" id="cor">
+                </div>
+                <div class="item3">
+                    <label for="condicao">Condição</label>
+                    <select name="condicaos" id="condicao">
+                        <option value="novo">Novo (usado até 2 meses)</option>
+                        <option value="seminovo">Seminovo (usado de 2 a 6 meses)</option>
+                        <option value="usado">Usado (usado por mais de 6 meses)</option>
+                    </select>
+                    <label for="Contato">Contato</label>
+                    <input type="text" id="Contato">
+                </div>
+                <div class="item4">
+                    <label for="desc">Descrição do produto</label>
+                    <textarea name="descricao" id="desc"></textarea>
+                </div>
+                
+                <input type="button" value="Cadastrar produto">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
