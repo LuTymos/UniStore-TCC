@@ -1,0 +1,64 @@
+.container{
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 5%;
+}
+
+h1{
+    font-size: 22px;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 0 8%;
+}
+form{
+    max-width: 1000px;
+    margin: 50px auto 0 auto;
+}
+
+
+@media screen and (min-width: 950px) {
+    .container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 100px;
+        align-items: flex-start;
+    }
+
+    .wraper,.wraper2{
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .item1, .item2, .item3, .item4{
+        width: 330px;
+        margin: 0 10px;
+    }
+
+    .item2, .item3{
+        align-self: center;
+    }
+    #Tproduto, #condicao{
+        margin-bottom: 50px;
+    }
+    .item3 select, .item3 input[type="text"]{
+        width: 280px;
+    }
+    
+
+    .top{
+        display: none;
+    }
+
+    .wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .wrap select{
+        display: inline-block;
+    }
+
+
+}

@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniStore</title>
     <link rel="stylesheet" href="css/form-style.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/login_cadastro.css">
     <link rel="stylesheet" href="css/cadproduto.css">
+    <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
     <header>
@@ -16,12 +15,14 @@
     </header>
     <main>
         <div class="top"><a href="index.html"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
-        <div class="container">
-            <div class="login">
-                
-                <h1>Cadastrar produto:</h1>
-
-                <form action="">
+        
+        
+        
+        
+        <form action="">
+                    <div class="container">
+                    <h1 >Cadastrar produto:</h1>
+                    <div class="wraper">
                 <div class="item1">
                     <label for="file" class="Flabel">Adicionar Fotos</label>
                     <input type="file" id="file">
@@ -29,6 +30,8 @@
                 <div class="item2">
                     <label for="Tproduto">Titulo do produto</label>
                     <input type="text" id="Tproduto">
+                    <div class="wrap">
+                        <div>
                     <label for="tamanho">Tamanho</label>
                     <select name="tamanhos" id="tamanho">
                         <option value="P">P</option>
@@ -36,9 +39,16 @@
                         <option value="G">G</option>
                         <option value="infantil">Infantil</option>
                     </select>
+                </div>
+                <div>
                     <label for="cor:">Cor</label>
                     <input type="text" id="cor">
                 </div>
+                </div>
+                </div>
+                </div>
+
+                <div class="wraper2">
                 <div class="item3">
                     <label for="condicao">Condição</label>
                     <select name="condicaos" id="condicao">
@@ -53,11 +63,27 @@
                     <label for="desc">Descrição do produto</label>
                     <textarea name="descricao" id="desc"></textarea>
                 </div>
-                
-                <input type="button" value="Cadastrar produto">
-                </form>
+                </div>
             </div>
-        </div>
+            <input type="button" value="Cadastrar produto">
+            </form>
+            
+        
     </main>
+
+    <footer>
+        <div class="container">
+          <ul>
+            <li><h3>UniStore</h3></li>
+            <li><h3>Quem Somos</h3></li>
+            <li><h3>Politica de Privacidade</h3></li>
+          </ul>
+          <div class="social">
+            <img src="img/instagram.png" alt="">
+            <img src="img/facebook-app-symbol.png" alt="">
+            <img src="img/twitter.png" alt="">
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
