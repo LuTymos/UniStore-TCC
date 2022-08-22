@@ -168,49 +168,6 @@ section.more-products{
     margin-top: 20px;
 }
 
-
-
-
-
-
-/****SLICK SLIDER****/
-
-.slick-dotted ul{
-    display: block;
-	list-style-type: none;
-	text-align: center;
-	position: relative;
-	top:30px;
-}
-
-.slick-dotted li{
-	display: inline-block;
-	margin: 0 7px;
-}
-
-.slick-dotted button:focus{
-	outline: 0;
-}
-
-.slick-dotted li button{
-	width: 16px;
-	height: 16px;
-	border-radius: 8px;
-	color: #d8d8d8;
-	border-width: 0;
-	background: #d8d8d8;
-	opacity: 1;
-	cursor: pointer;
-}
-
-li.slick-active button{
-	background: #112B3C;
-	color: #373855;
-}
-.slick-slide:focus { outline: none; }
-
-/* fim slick slider */
-
 @media screen and (max-width:1000px) {
     .box-valor-desktop{
         display: none;
