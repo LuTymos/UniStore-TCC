@@ -1,0 +1,88 @@
+.logo a{ 
+    margin: 0 auto;
+}
+
+main .container{
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.top{
+    width: 80%;
+    margin: 20px auto 40px auto;
+}
+
+.top a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.top img{
+    width: 30px;
+    margin-right: 15px;
+}
+
+.top a p{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+textarea{
+    width: 100%;
+    display: block;
+    height: 170px;
+    resize: none;
+    margin: 10px 0 20px 0;
+    background-color: transparent;
+    border:2px solid #112B3C;
+    padding: 10px 20px;
+}
+
+ form input[type="text"], form input[type="password"], form input[type="text"],form input[type="password"], select{
+    
+    width: 100%;
+    display: block;
+    border: none;
+    margin: 0 0 20px 0;
+    background-color: transparent;
+    border-bottom: 2px solid #112B3C;
+}
+
+ form input[type="button"], form input[type="button"]{
+    height: 30px;
+    width: 180px;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    background-color: #205375;
+    color: #EFEFEF;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+ form input[type="button"]:hover, form input[type="button"]:hover, selec:hover{
+    background-color: #112B3C;
+    cursor: pointer;
+}
+
+ input:focus, selec:focus, textarea:focus{
+    outline: 0;
+}
+
+input[type='file'] {
+    display: none
+  }
+  
+label.Flabel {
+    width: 280px;
+    height: 170px;
+    text-align: center;
+    padding-top: 25% ;
+    display: block;
+    background-color: white;
+    border: 4px dashed black;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
