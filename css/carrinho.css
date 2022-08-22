@@ -53,8 +53,8 @@ div.box .itens .item:not(:first-child){
 }
 
 div.box .itens .item .img-item{
-    width: 70px;
-    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
     background-color: #ccc;
 }
 

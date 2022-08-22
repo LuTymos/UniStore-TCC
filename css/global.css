@@ -129,21 +129,25 @@ header .barra-pesquisa-desktop img{
     cursor: pointer;
 }
 
-header .entrar img{
+header .entrar a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+header .entrar a img{
     width: 28px;
     height: 28px;
 }
-header .entrar span{
+header .entrar a span{
     color: #EFEFEF;
     font-weight: 600;
 }
 
 header .entrar{
     width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    cursor: pointer;
 }
 
 header .btn-menu{
