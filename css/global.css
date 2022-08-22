@@ -222,6 +222,7 @@ footer{
 footer .container{
     max-width: 500px;
     height: 100%;
+    align-items: center;
 }
 
 footer ul{
