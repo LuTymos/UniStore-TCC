@@ -142,7 +142,7 @@
         flex-direction: row;
         width: 100%;
         margin: 0 auto;
-        justify-content: space-between;
+        justify-content: center;
     }
 
     .wrap{
@@ -158,7 +158,7 @@
     .one, .two{
         width: 80%;
         min-width: 350px;
-        margin: 0 auto;
+        margin: 0 30px;
     }
 
 }
