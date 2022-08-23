@@ -6,6 +6,11 @@ section.instituicoes{
     margin-top: 50px;
 }
 
+h2.title-inst{
+    max-width: 800px;
+    padding-left: 5%;
+}
+
 div.slider{
     max-width: 800px;
     margin: 0 auto;
