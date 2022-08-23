@@ -163,7 +163,7 @@ header .btn-menu{
 
 .menu{
     display: none;
-    width: 100%;
+    width: 170px;
     padding: 15px 15px;
     background-color: #112B3C;
     position: absolute;
@@ -192,7 +192,7 @@ header .btn-menu{
 
 .grupo{
     display: flex;
-    width: 200px;
+    width: 130px;
     justify-content: space-between;
     position: relative;
 }
