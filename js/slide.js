@@ -8,8 +8,8 @@ $('.slider').slick({
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         }
       },
       {
