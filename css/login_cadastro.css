@@ -4,6 +4,10 @@
     margin-bottom: 40px;
 }
 
+.login, .cadastro h1{
+    text-align: center;
+}
+
 
 .login h1, .cadastro h1{
     font-size: 22px;

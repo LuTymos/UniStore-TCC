@@ -48,7 +48,7 @@ section.container{
 }
 
 .infovend{
-    width: 400px;
+    width: 100%;
     padding: 20px 5%;
     margin-top: 30px;
     height: 150px;
@@ -150,6 +150,10 @@ margin: 0 auto;
     margin-top: 20px;
     align-self: center;
     }
+
+    .infovend{
+        max-width: 400px;
+    }
     .infoUsu{
         max-width: 660px;
     }
@@ -163,7 +167,7 @@ margin: 0 auto;
 
 @media screen and (min-width:650px){
     .itensvend{
-        width: 600px;
+        width: 400px;
         margin: 0 auto;
         }
 }

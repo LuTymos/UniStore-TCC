@@ -39,6 +39,10 @@ form{
     .item2, .item3{
         align-self: center;
     }
+
+    .item3{
+        order: 2;
+    }
     #Tproduto, #condicao{
         margin-bottom: 50px;
     }
