@@ -68,7 +68,7 @@ header .logo a{
     display: flex;
     align-items: center;
     cursor: pointer;
-    width: 200px;
+    width: 160px;
 }
 
 header .logo img{
