@@ -18,11 +18,53 @@ div.slider{
     
 }
 
-div.img{
+div.img1,div.img2,div.img3,div.img4,div.img5,div.img6{
     width: 200px;
     height: 200px;
     border: 5px solid #EFEFEF;
-    background-color: #ccc;
+}
+
+div.img1{
+    background-image: url(../img/mackenzie.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+}
+div.img2{
+    background-image: url(../img/Objetivo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+}
+div.img3{
+    background-image: url(../img/daycare.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+}
+div.img4{
+    background-image: url(../img/redballon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -40px;
+}
+div.img5{
+    background-image: url(../img/fieb.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+div.img6{
+    background-image: url(../img/chalupe.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
 }
 
 
