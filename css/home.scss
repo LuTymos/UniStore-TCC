@@ -9,6 +9,7 @@ nav.categorias{
         text-transform: uppercase;
         font-weight: bold;
         border-bottom: 1px solid #F66B0E;
+        cursor: pointer;
     }
 }
 
@@ -27,14 +28,14 @@ section.instituicoes{
         div.img{
             width: 200px;
             height: 200px;
-            border: 5px solid #EFEFEF;
+            border: 5px solid $corBranca;
             display: flex;
             justify-content: center;
             align-items: center;
             img{
                 width: clamp(150px, 80%, 200px);
                 margin: 0 auto;
-                
+                cursor: pointer;
             }
         }
     }
@@ -45,7 +46,7 @@ section.instituicoes{
 
 
 section.cidade{
-    background-color: #112B3C;
+    background-color: $azulEscuro;
     margin-top: 100px;
     height: 100px;
     width: 100%;
@@ -53,67 +54,76 @@ section.cidade{
         max-width: 960px;
     }
     p{
-        color: #efefef;
+        color: $corBranca;
         font-size: 22px;
         width: 350px;
         font-weight: bold;
     }
     select{
+        cursor: pointer;
         width: 240px;
         height: 40px;
         font-weight: bold;
+        &:focus{
+            outline: none;
+        }
     }
 }
 
 section.vitrine-produtos{
     margin-top: 60px;
-}
 
-section.vitrine-produtos div.container{
-    max-width: 1100px;
-    flex-wrap: wrap;
-}
+    .container{
+        max-width: 1100px;
+        flex-wrap: wrap;
 
-section.vitrine-produtos .box-produto{
-    background-color: white;
-    width: 180px;
-    height: 260px;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    margin-top: 30px;
-}
-
-section.vitrine-produtos .box-produto div.img-box{
-    width: 95%;
-    height: 100px;
-    margin: 0 auto;
-    background-color: #ccc;
-}
-
-section.vitrine-produtos .box-produto p{
-    text-align: left;
-    margin: 20px 0;
-}
-
-section.vitrine-produtos .box-produto .preco{
+        .box-produto{
+            background-color: $brancoBG;
+            cursor: pointer;
+            width: 180px;
+            height: 260px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 30px;
+            .img-box{
+                width: 95%;
+                height: 100px;
+                margin: 0 auto;
+                background-color: #ccc;
+            }
+            p{
+                text-align: left;
+                margin: 20px 0;
+            }
+            .preco{
     font-weight: bold;
     margin-top: 20px;
 }
+        }
+    }
+    button{
+        width: 160px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 18px;
+        background-color: #F66B0E;
+        color: $corBranca;
+        border-radius: 15px;
+        border: none;
+        margin: 0 auto;
+        display: block;
+        margin-top: 50px;
+        &:hover{
+            background-color: #d35806;
+        }
+    }
 
-section.vitrine-produtos button{
-    width: 160px;
-    height: 40px;
-    font-size: 18px;
-    background-color: #F66B0E;
-    color: #EFEFEF;
-    border-radius: 15px;
-    border: none;
-    margin: 0 auto;
-    display: block;
-    margin-top: 50px;
 }
 
-section.vitrine-produtos button:hover{
-    background-color: #d35806;
-}
+
+
+
+
+
+

@@ -162,7 +162,8 @@ nav.categorias {
   nav.categorias h3 {
     text-transform: uppercase;
     font-weight: bold;
-    border-bottom: 1px solid #F66B0E; }
+    border-bottom: 1px solid #F66B0E;
+    cursor: pointer; }
 
 section.instituicoes {
   max-width: 900px;
@@ -184,7 +185,8 @@ section.instituicoes {
       align-items: center; }
       section.instituicoes .slider div.img img {
         width: clamp(150px, 80%, 200px);
-        margin: 0 auto; }
+        margin: 0 auto;
+        cursor: pointer; }
 
 section.cidade {
   background-color: #112B3C;
@@ -194,59 +196,57 @@ section.cidade {
   section.cidade .container {
     max-width: 960px; }
   section.cidade p {
-    color: #efefef;
+    color: #EFEFEF;
     font-size: 22px;
     width: 350px;
     font-weight: bold; }
   section.cidade select {
+    cursor: pointer;
     width: 240px;
     height: 40px;
     font-weight: bold; }
+    section.cidade select:focus {
+      outline: none; }
 
 section.vitrine-produtos {
   margin-top: 60px; }
-
-section.vitrine-produtos div.container {
-  max-width: 1100px;
-  flex-wrap: wrap; }
-
-section.vitrine-produtos .box-produto {
-  background-color: white;
-  width: 180px;
-  height: 260px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-  margin-top: 30px; }
-
-section.vitrine-produtos .box-produto div.img-box {
-  width: 95%;
-  height: 100px;
-  margin: 0 auto;
-  background-color: #ccc; }
-
-section.vitrine-produtos .box-produto p {
-  text-align: left;
-  margin: 20px 0; }
-
-section.vitrine-produtos .box-produto .preco {
-  font-weight: bold;
-  margin-top: 20px; }
-
-section.vitrine-produtos button {
-  width: 160px;
-  height: 40px;
-  font-size: 18px;
-  background-color: #F66B0E;
-  color: #EFEFEF;
-  border-radius: 15px;
-  border: none;
-  margin: 0 auto;
-  display: block;
-  margin-top: 50px; }
-
-section.vitrine-produtos button:hover {
-  background-color: #d35806; }
+  section.vitrine-produtos .container {
+    max-width: 1100px;
+    flex-wrap: wrap; }
+    section.vitrine-produtos .container .box-produto {
+      background-color: white;
+      cursor: pointer;
+      width: 180px;
+      height: 260px;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 30px; }
+      section.vitrine-produtos .container .box-produto .img-box {
+        width: 95%;
+        height: 100px;
+        margin: 0 auto;
+        background-color: #ccc; }
+      section.vitrine-produtos .container .box-produto p {
+        text-align: left;
+        margin: 20px 0; }
+      section.vitrine-produtos .container .box-produto .preco {
+        font-weight: bold;
+        margin-top: 20px; }
+  section.vitrine-produtos button {
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #F66B0E;
+    color: #EFEFEF;
+    border-radius: 15px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    margin-top: 50px; }
+    section.vitrine-produtos button:hover {
+      background-color: #d35806; }
 
 footer {
   width: 100%;
