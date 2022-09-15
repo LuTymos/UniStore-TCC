@@ -1,0 +1,33 @@
+$corBranca: #EFEFEF;
+$brancoBG:white;
+$azulEscuro: #112B3C;
+$corBotao:#F66B0E;
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body{
+    width: 100%;
+    background-color: $corBranca;
+    min-height: 600px;
+}
+
+.container{
+    max-width: 1100px;
+    padding: 0 3%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+@import "header";
+@import "slickm";
+@import "home";
+@import "footer";
