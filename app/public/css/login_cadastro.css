@@ -1,8 +1,14 @@
+header{
+    height: 10vh;
+    min-height: 80px;
+}
+
 .login, .cadastro{
     width: 80%;
     max-width: 350px;
     margin-bottom: 40px;
 }
+
 
 .login, .cadastro h1{
     text-align: center;
@@ -22,6 +28,7 @@
 .metodos{
     width: 80%;
     max-width: 350px;
+    text-align: center;
 }
 
 .metodos h1{
@@ -113,11 +120,18 @@
 }
 
 
+
+
 @media screen and (min-width: 950px) {
     main .container{
         flex-direction: row;
-        margin-top: 100px;
         align-items: flex-start;
+        height: 70vh;
+    }
+    footer{
+        height: 20vh !important;
+        margin: 0 !important;
+        min-height: 180px;
     }
 
     .top{
@@ -133,6 +147,11 @@
 
     .metodos{
         text-align: center;
+    }
+    .login, .cadastro, .metodos{
+        position: relative;
+        top: 50%;
+        transform: translate(0%, -50%);
     }
 
     .log-icons h2 a{
