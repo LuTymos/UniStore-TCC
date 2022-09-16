@@ -10,6 +10,12 @@ nav.categorias{
         font-weight: bold;
         border-bottom: 1px solid #F66B0E;
         cursor: pointer;
+        @media screen and (max-width: 500px){
+                text-transform: uppercase;
+                font-weight: bold;
+                border-bottom: 1px solid #F66B0E;
+                font-size: 16px;
+            }
     }
 }
 
@@ -58,6 +64,12 @@ section.cidade{
         font-size: 22px;
         width: 350px;
         font-weight: bold;
+        @media screen and (max-width: 768px){
+                color: #efefef;
+                font-size: 16px;
+                width: 200px;
+                font-weight: bold;
+        }
     }
     select{
         cursor: pointer;
