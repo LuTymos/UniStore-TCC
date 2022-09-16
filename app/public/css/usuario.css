@@ -1,0 +1,161 @@
+.top {
+  width: 80%;
+  margin: 20px auto 40px auto; }
+  @media screen and (min-width: 780px) {
+    .top {
+      display: none; } }
+  .top a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit; }
+    .top a p {
+      font-size: 22px;
+      font-weight: bold; }
+  .top img {
+    width: 30px;
+    margin-right: 15px; }
+
+main.usuario section.container {
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0; }
+  main.usuario section.container .topSection {
+    width: 100%;
+    padding: 0 5%; }
+    @media screen and (min-width: 780px) {
+      main.usuario section.container .topSection {
+        margin-top: 30px; } }
+    main.usuario section.container .topSection p {
+      font-weight: bold; }
+  main.usuario section.container .infoUsu {
+    padding: 20px 5%;
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    background-color: #205375;
+    color: #eeffff; }
+    @media screen and (min_width: 780px) {
+      main.usuario section.container .infoUsu {
+        max-width: 660px; } }
+    main.usuario section.container .infoUsu .topInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      main.usuario section.container .infoUsu .topInfo a {
+        color: #eeffff;
+        text-decoration: none;
+        font-weight: bold; }
+    main.usuario section.container .infoUsu .infos {
+      padding: 10px 0px;
+      margin: 0 auto;
+      width: 100%; }
+      main.usuario section.container .infoUsu .infos .info {
+        display: flex; }
+        main.usuario section.container .infoUsu .infos .info p {
+          margin: 5px 5px;
+          font-size: 15px; }
+main.usuario .opcoes {
+  display: flex;
+  width: clamp(300px, 100%, 350px);
+  margin-top: 50px;
+  justify-content: space-between; }
+  main.usuario .opcoes .com-vend, main.usuario .opcoes .alte {
+    padding: 20px 0;
+    text-align: center;
+    width: 45%;
+    height: 150px;
+    background-color: #205375;
+    color: #eeffff;
+    border-radius: 15px;
+    cursor: pointer; }
+    main.usuario .opcoes .com-vend img, main.usuario .opcoes .alte img {
+      width: 80px; }
+
+main.vendedor section.container {
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0; }
+  main.vendedor section.container .topSection {
+    width: 100%;
+    padding: 0 5%; }
+    @media screen and (min-width: 780px) {
+      main.vendedor section.container .topSection {
+        margin-top: 30px; } }
+    main.vendedor section.container .topSection p {
+      font-weight: bold; }
+  main.vendedor section.container .infovend {
+    width: 100%;
+    padding: 20px 5%;
+    margin-top: 30px;
+    height: 150px;
+    background-color: #205375;
+    color: #eeffff; }
+    main.vendedor section.container .infovend .infos {
+      padding: 10px 0px;
+      margin: 0 auto;
+      width: 100%; }
+      main.vendedor section.container .infovend .infos .info {
+        display: flex; }
+        main.vendedor section.container .infovend .infos .info p {
+          margin: 5px 5px;
+          font-size: 15px; }
+  main.vendedor section.container .itens .topSection {
+    width: 100%;
+    padding: 0 5%; }
+    @media screen and (min-width: 780px) {
+      main.vendedor section.container .itens .topSection {
+        margin-top: 30px; } }
+    main.vendedor section.container .itens .topSection p {
+      font-weight: bold; }
+  main.vendedor section.container .itens .h-itens {
+    margin: 20px 0; }
+  main.vendedor section.container .itens .itensvend {
+    width: 200px;
+    margin: 0 auto; }
+    @media screen and (min-width: 780px) {
+      main.vendedor section.container .itens .itensvend {
+        align-self: flex-start;
+        margin-top: 20px;
+        align-self: center; } }
+    @media screen and (min-width: 600px) {
+      main.vendedor section.container .itens .itensvend {
+        width: 600px;
+        margin: 0 auto; } }
+    main.vendedor section.container .itens .itensvend .box-produto {
+      background-color: white;
+      width: 180px;
+      height: 260px;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 30px;
+      margin-left: 20px; }
+      main.vendedor section.container .itens .itensvend .box-produto div.img-box {
+        width: 95%;
+        height: 100px;
+        margin: 0 auto;
+        background-color: #ccc; }
+      main.vendedor section.container .itens .itensvend .box-produto p {
+        text-align: left;
+        margin: 20px 0; }
+      main.vendedor section.container .itens .itensvend .box-produto .preco {
+        font-weight: bold;
+        margin-top: 20px; }
+
+@media screen and (min-width: 780px) {
+  .infovend {
+    align-self: flex-start;
+    margin-top: 20px;
+    align-self: center;
+    max-width: 400px; } }
+@media screen and (min-width: 650px) {
+  .itensvend {
+    width: 400px;
+    margin: 0 auto; } }
+@media screen and (min-width: 600px) {
+  .itensvend {
+    width: 400px;
+    margin: 0 auto; } }
+
+/*# sourceMappingURL=usuario.css.map */
