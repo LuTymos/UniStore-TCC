@@ -1,32 +1,32 @@
-.logo a{ 
-    margin: 0 auto;
-}
+$corBranca: #EFEFEF;
+$brancoBG:white;
+$azulEscuro: #112B3C;
+$corBotao:#F66B0E;
+$corBotaoHover:#b34802;
 
-.container{
-    flex-direction: column;
-    flex-wrap: wrap;
+.logo{ 
+    margin: 0 auto;
+    width: 150px !important;
 }
 
 .top{
     width: 80%;
     margin: 20px auto 40px auto;
-}
+    a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        p{
+            font-size: 22px;
+            font-weight: bold;
+        }
+    }
+    img{
+        width: 30px;
+        margin-right: 15px;
+    }
 
-.top a{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-
-.top img{
-    width: 30px;
-    margin-right: 15px;
-}
-
-.top a p{
-    font-size: 22px;
-    font-weight: bold;
 }
 
 textarea{
@@ -38,9 +38,13 @@ textarea{
     background-color: transparent;
     border:2px solid #112B3C;
     padding: 10px 20px;
+    font-weight: bold;
+    &:focus{
+        outline: 0;
+    }
 }
 
- form input[type="text"], form input[type="password"], form input[type="text"],form input[type="password"], select{
+ form input[type="text"], form input[type="password"], form input[type="text"],form input[type="password"]{
     width: 100%;
     display: block;
     border: none;
@@ -48,27 +52,31 @@ textarea{
     background-color: transparent;
     border-bottom: 2px solid #112B3C;
     font-weight: bold;
+    text-align: center;
+    &:focus{
+        outline: 0;
+    }
 }
 
- form input[type="button"], form input[type="button"]{
+ form input[type="button"]{
     height: 30px;
     width: 180px;
     margin: 0 auto;
     display: block;
     border: none;
-    background-color: #205375;
-    color: #EFEFEF;
+    background-color: $corBotao;
+    color: $corBranca;
     border-radius: 15px;
     margin-top: 40px;
-}
- form input[type="button"]:hover, form input[type="button"]:hover{
-    background-color: #112B3C;
-    cursor: pointer;
+    &:hover{
+        background-color: $corBotaoHover;
+        cursor: pointer;
+    }
 }
 
- input:focus, select:focus, textarea:focus{
+ select:focus{
     outline: 0;
-}
+ }
 
 input[type='file'] {
     display: none
@@ -86,3 +94,5 @@ label.Flabel {
     cursor: pointer;
     margin-bottom: 20px;
   }
+
+  

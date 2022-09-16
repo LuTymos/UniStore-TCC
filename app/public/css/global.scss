@@ -2,6 +2,7 @@ $corBranca: #EFEFEF;
 $brancoBG:white;
 $azulEscuro: #112B3C;
 $corBotao:#F66B0E;
+$corBotaoHover:#b34802;
 
 *{
     padding: 0px;
@@ -13,7 +14,6 @@ $corBotao:#F66B0E;
 html,body{
     width: 100%;
     background-color: $corBranca;
-    min-height: 600px;
 }
 
 .container{

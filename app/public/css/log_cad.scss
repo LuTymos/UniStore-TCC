@@ -1,0 +1,213 @@
+$corBranca: #EFEFEF;
+$brancoBG:white;
+$azulEscuro: #112B3C;
+$corBotao:#F66B0E;
+$corBotaoHover:#b34802;
+$azulClaro:#205375;
+
+
+.container{
+    flex-direction: column;
+}
+header{
+    min-height: 80px;
+    @media screen and (min-width:950px){
+        height: 10vh;
+        min-height: 80px;
+    }
+}
+
+main{
+    .container{
+        @media screen and (min-width:950px) {
+            flex-direction: row;
+            align-items: flex-start;
+            height: 70vh;
+        }
+    }
+}
+
+.login, .cadastro{
+    width: 80%;
+    max-width: 350px;
+    margin-bottom: 40px;
+
+    @media screen and (min-width:950px){
+        position: relative;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    h1{
+    font-size: 22px;
+    margin-bottom: 30px;
+    }
+    form{
+    margin: 0 auto;
+    width: 280px;
+
+    @media screen and (min-width:950px) {
+        margin: 0 auto;
+        width: 100%;
+    }
+    }
+    
+}
+
+.cadastro{
+    @media screen and (min-width:950px){
+        width: 100%;
+        max-width: 1000px;
+    }
+}
+
+.metodos{
+    width: 80%;
+    max-width: 350px;
+    text-align: center;
+
+    @media screen and (min-width:950px){
+        position: relative;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    h1{
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+    .log-icons{
+        width: 100%;
+        text-align: center;
+        h2{
+            font-size: 22px;
+            margin-top: 30px;
+            a{
+                color: $azulClaro;
+                text-decoration: underline;
+                margin-left: 10px;
+                display: block;
+                &:hover{
+                color: $azulEscuro;
+                cursor: pointer;
+
+                @media screen and (min-width:950px) {
+                color: #205375;
+                text-decoration: underline;
+                margin-left: 10px;
+                display: block;
+                }
+                }
+            }
+        }
+        img{
+            width: 40px;
+            margin-right: 15px;
+        }
+    }
+}
+
+// FIM LOGIN !!!
+
+.cadastro{
+
+        .divisor{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 0 auto;
+
+            @media screen and (min-width: 950px){
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: 0 auto;
+            justify-content: center;
+            }
+
+            .one, .two{
+                width: 80%;
+                max-width: 350px;
+                margin: 0 auto;
+
+                @media screen and (min-width:950px) {
+                width: 80%;
+                min-width: 350px;
+                margin: 0 30px;
+                }
+            }
+    }
+    
+    
+    
+    .log{
+        width: 100%;
+        text-align: center;
+        h2{
+            font-size: 22px;
+            margin-top: 30px;
+            a{
+                color: $azulClaro;
+                text-decoration: underline;
+                margin-left: 10px;
+                &:hover{
+                color: $azulEscuro;
+                cursor: pointer;
+                }
+            }
+        }
+    }
+    
+}
+footer{
+    width: 100%;
+    height: 170px;
+    background-color: #333333;
+    margin-top: 100px;
+
+
+    @media screen and (min-width: 950px){
+        height: 20vh !important;
+        margin: 0 !important;
+        min-height: 180px;
+    }
+
+
+    .container{
+    max-width: 500px;
+    height: 100%;
+    align-items: center;
+    flex-direction: row;
+
+
+    @media screen and (min-width: 950px){
+        max-width: 500px;
+        height: 100%;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+    ul{
+    list-style-type: none;
+    li h3{
+    color: $corBranca;
+}
+}
+    .social img{
+    width: 20px;
+}
+}
+
+
+@media screen and (min-width: 950px) {
+
+    .top{
+        display: none;    }
+
+    .wrap{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
