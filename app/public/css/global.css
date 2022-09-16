@@ -286,8 +286,10 @@ section.cidade {
   background-color: #112B3C;
   margin-top: 100px;
   height: 100px;
+  padding: 20px 0;
   width: 100%; }
   section.cidade .container {
+    align-items: center;
     max-width: 960px; }
   section.cidade p {
     color: #EFEFEF;
