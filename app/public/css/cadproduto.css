@@ -15,6 +15,27 @@ form{
     margin: 50px auto 0 auto;
 }
 
+#condicao{
+    width: 70%;
+    height: 20px;
+    margin: 20px 0;
+}
+
+select{
+    width: 60px;
+    height: 20px;
+    margin: 20px 0;
+    border: none;
+    border-bottom: 2px solid #112B3C;
+    background: transparent;
+    font-weight: bold;
+}
+.wraper,.wraper2{
+    width: 280px;
+    margin: 0 auto;
+}
+
+
 
 @media screen and (min-width: 950px) {
     .container{

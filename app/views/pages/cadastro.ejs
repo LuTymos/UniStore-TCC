@@ -23,34 +23,40 @@
             <div class="container">
                 <div class="cadastro">
                     <h1>Fazer Cadastro:</h1>
-                    <form action="">
+                    <form action="/cadastro" method="post">
                     <div class="divisor">
                         <div class="one">
+
                         <label for="nc">Nome Completo</label>
-                        <input type="text" id="cn">
+                        <input type="text" name="nomeCompleto" id="cn">
+
                         <label for="nu">Nome de Usuario</label>
-                        <input type="text" id="nu">
+                        <input type="text" name="nomeUsuario" id="nu">
+
                         <label for="email">E-mail</label>
-                        <input type="text" class="email" id="email">
+                        <input type="text" name="email" class="email" id="email">
+
                         </div>
                         <div class="two">
                         <div class="wrap">
                         <div>
                         <label for="tel ">Telefone</label>
-                        <input type="text" id="tel" class="w50 telefone">
+                        <input type="text" name="telefone" id="tel" class="w50 telefone">
                         </div>
+
                         <div>
                         <label for="cpf w50">CPF</label>
-                        <input type="text" id="cpf" class="w50 cpf">
+                        <input type="text" name="cpf" id="cpf" class="w50 cpf">
                         </div>
+
                         </div>
+                        
                         <label for="Senha">Senha</label>
-                        <input type="password" id="senha">
-                        <label for="cs">Confirmar senha</label>
-                        <input type="password" id="cs">
+                        <input type="password" name="senha" id="senha">
+
                         </div>
                     </div>
-                        <input type="button" value="Fazer cadastro">
+                        <input type="submit" value="Fazer cadastro">
                         </form>
                         <div class="log">
                         <h2>Já tem uma conta? <a href="/login">Entrar</a></h2>

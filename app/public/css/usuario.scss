@@ -89,7 +89,7 @@ section.container{
 .opcoes{
     display: flex;
     width: clamp(300px,100%,350px);
-    margin-top: 50px;
+    margin-top: 50px 0;
     justify-content: space-between;
     
     .com-vend, .alte{

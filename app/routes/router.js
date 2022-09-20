@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var fabricaDeConexao = require("../../config/connection-factory");
+var conexao = fabricaDeConexao();
+
 router.get('/', function(req,res){
     res.render('pages/index')
 });
@@ -32,6 +35,31 @@ router.get('/usuario', function(req,res){
 router.get('/vendedor', function(req,res){
     res.render('pages/vend')
 });
+
+router.post('/cadastro', (req, res)=>{
+    console.log(req.body)
+
+    var dadosForm ={
+        nome: req.body.nomeCompleto,
+        nome_usu: req.body.nomeUsuario,
+        email:req.body.email,
+        telefone: req.body.telefone,
+        cpf: req.body.cpf,
+        senha: req.body.senha
+    }
+
+    conexao.query(
+        "INSERT INTO usuario SET ?",
+        dadosForm,
+        function (error, results, fields){
+            if(error) throw error;
+            if(results){
+                alert('Cadastro Realizado com sucesso')
+            }
+        }
+    )
+})
+
 
 
 module.exports = router;

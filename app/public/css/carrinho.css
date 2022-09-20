@@ -4,6 +4,10 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+}  
+
+.carrinho{
+    margin-top: 50px !important;
 }
 
 .container1{

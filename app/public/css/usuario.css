@@ -58,7 +58,7 @@ main.usuario section.container {
 main.usuario .opcoes {
   display: flex;
   width: clamp(300px, 100%, 350px);
-  margin-top: 50px;
+  margin: 50px 0 100px 0;
   justify-content: space-between; }
   main.usuario .opcoes .com-vend, main.usuario .opcoes .alte {
     padding: 20px 0;
