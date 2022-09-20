@@ -58,6 +58,7 @@ router.post('/cadastro', (req, res)=>{
             }
         }
     )
+    res.redirect('/login')
 })
 
 
