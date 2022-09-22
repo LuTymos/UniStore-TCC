@@ -53,12 +53,33 @@ router.post('/cadastro', (req, res)=>{
         dadosForm,
         function (error, results, fields){
             if(error) throw error;
-            if(results){
-                alert('Cadastro Realizado com sucesso')
-            }
         }
     )
     res.redirect('/login')
+})
+
+router.post('/cadastroProduto', (req, res)=>{
+    console.log(req.body)
+
+    var dadosForm ={
+        foto: req.body.file,
+        titulo: req.body.TituloProduto,
+        tamanho:req.body.tamanho,
+        cor: req.body.cor,
+        condicao: req.body.condicao,
+        contato: req.body.contato,
+        descricao: req.body.descricao,
+        valor: req.body.preco,
+    }
+
+    conexao.query(
+        "INSERT INTO uniforme SET ?",
+        dadosForm,
+        function (error, results, fields){
+            if(error) throw error;
+        }
+    )
+    res.redirect('/')
 })
 
 

@@ -20,21 +20,21 @@
         
         
         
-        <form action="">
+        <form action="/cadastroProduto" method="post">
                     <div class="container">
                     <h1 >Cadastrar produto:</h1>
                     <div class="wraper">
                 <div class="item1">
                     <label for="file" class="Flabel">Adicionar Fotos</label>
-                    <input type="file" id="file">
+                    <input type="file" name="file" id="file">
                 </div>
                 <div class="item2">
                     <label for="Tproduto">Titulo do produto</label>
-                    <input type="text" id="Tproduto">
+                    <input type="text" name="TituloProduto" id="Tproduto">
                     <div class="wrap">
                         <div>
                     <label for="tamanho">Tamanho</label>
-                    <select name="tamanhos" id="tamanho">
+                    <select name="tamanho" name="tamanho" id="tamanho">
                         <option value="P">P</option>
                         <option value="M">M</option>
                         <option value="G">G</option>
@@ -43,7 +43,7 @@
                 </div>
                 <div>
                     <label for="cor:">Cor</label>
-                    <input type="text" id="cor">
+                    <input type="text" name="cor" id="cor">
                 </div>
                 </div>
                 </div>
@@ -53,24 +53,28 @@
                 <div class="item3">
                     <div class="one">
                     <label for="condicao">Condição</label>
-                    <select name="condicaos" id="condicao">
-                        <option value="novo">Novo (usado até 2 meses)</option>
-                        <option value="seminovo">Seminovo (usado de 2 a 6 meses)</option>
-                        <option value="usado">Usado (usado por mais de 6 meses)</option>
+                    <select name="condicao" id="condicao">
+                        <option value="nova">Novo (usado até 2 meses)</option>
+                        <option value="seminova">Seminovo (usado de 2 a 6 meses)</option>
+                        <option value="usada">Usado (usado por mais de 6 meses)</option>
                     </select>
                 </div>
                 <div class="two">
                     <label for="Contato">Contato</label>
-                    <input type="text" id="Contato">
+                    <input type="text" name="contato" id="Contato">
+                </div>
+                <div class="two">
+                    <label for="preco">Preço</label>
+                    <input type="text" name="preco" id="preco">
                 </div>
             </div>
                 <div class="item4">
                     <label for="desc">Descrição do produto</label>
-                    <textarea name="descricao" id="desc"></textarea>
+                    <textarea name="descricao" name="decricao" id="desc"></textarea>
                 </div>
                 </div>
             </div>
-            <input type="button" value="Cadastrar produto">
+            <input type="submit" value="Cadastrar produto">
             </form>
             
         
