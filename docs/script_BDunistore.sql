@@ -8,7 +8,18 @@ cpf varchar(14),
 email varchar(100),
 nome varchar(50),
 senha varchar(20),
-telefone varchar(9)
+telefone varchar(15)
+);
+
+create table usuario_endereco(
+rua varchar(200),
+cep varchar(9),
+bairo varchar(200),
+cidade enum('barueri','osasco','santana de pernaiba','carapicuiba','jandira','itapevi'),
+numero int(10),
+id_usu int,
+PRIMARY KEY (Id_usu),
+FOREIGN KEY(id_usu) REFERENCES usuario(id_usu)
 );
 
 

@@ -43,7 +43,7 @@ router.post('/cadastro', (req, res)=>{
         nome: req.body.nomeCompleto,
         nome_usu: req.body.nomeUsuario,
         email:req.body.email,
-        telefone: req.body.telefone,
+        celular: req.body.celular,
         cpf: req.body.cpf,
         senha: req.body.senha
     }
