@@ -70,6 +70,7 @@ router.post('/cadastroProduto', (req, res)=>{
         contato: req.body.contato,
         descricao: req.body.descricao,
         valor: req.body.preco,
+        nome_instituicao: req.body.instituicao
     }
 
     conexao.query(
