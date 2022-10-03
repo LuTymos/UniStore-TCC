@@ -22,20 +22,20 @@
         <main>
             <div class="top"><a href="index.html"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
             
-                    <form action="">
+                    <form action="/editar" method="post">
                     <div class="container">
                         <div class="divisor">
                         <div class="one">
-                        <label for="nc">Nome de Usuario</label>
-                        <input type="text" id="cn">
-                        <label for="nu">Email</label>
-                        <input type="text" id="nu">
-                        <label for="email">Telefone</label>
-                        <input type="text" id="email">
+                        <label for="nu">Nome de Usuario</label>
+                        <input type="text" value="<%= usuario[0].nome_usu%>" name="nu" id="nu">
+                        <label for="email">Email</label>
+                        <input type="text" value="<%= usuario[0].email%>" name="email" id="email">
+                        <label for="celular">Celular</label>
+                        <input type="text" value="<%= usuario[0].celular%>" name="celular" id="celular">
                         </div>
                         <div class="two">
                         <label for="rua">Rua</label>
-                        <input type="text" id="rua">
+                        <input type="text" name="rua" value="<%= usuario[0].rua%>" id="rua">
                         <label for="cidade">Cidade</label>
                         <Select id="cidade" name="cidade">
                         <option value="barueri">Barueri</option>
@@ -49,19 +49,19 @@
                         <div class="wrap">
                             <div>
                             <label for="CEP ">CEP</label>
-                            <input type="text" id="CEP" class="w50">
+                            <input type="text" name="cep" value="<%= usuario[0].cep %>" id="CEP" class="w50">
                             </div>
                             <div>
                             <label for="numero w50">Numero</label>
-                            <input type="text" id="numero" class="w50">
+                            <input type="text" name="numero" value="<%= usuario[0].numero%>" id="numero" class="w50">
                             </div>
                             </div>
                         <label for="bairro">Bairro</label>
-                        <input type="text" id="bairro">
+                        <input type="text" name="bairo" value="<%= usuario[0].bairo%>"id="bairro">
                         </div>
                     </div>
                     </div>
-                        <input type="button" value="Salvar alterações">
+                        <input type="submit"  value="Salvar alterações">
                         </form>
                 </div>
             </div>
