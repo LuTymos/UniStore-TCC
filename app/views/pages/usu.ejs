@@ -12,29 +12,7 @@
     <link rel="stylesheet" href="css/usuario.css">
 </head>
 <body>
-    <header>
-        <div class="container">       
-        <div class="logo"><a href="/"><img src="img/Vetor UniStore.svg" alt=""><h2>UniStore</h2></a></div>
-        <div class="barra-pesquisa-desktop"><input type="text"><img src="img/procurar.png" alt=""></div>
-        <div class="grupo">
-        <div class="entrar"><a href="/login"><img src="img/enter.png" alt=""><span>Entrar!</span></a></div>
-        <div class="menu">
-          <ul>
-            <li><a href="/usuario">Perfil ></a></li>
-            <li><a href="/carrinho">Carrinho ></a></li>
-            <li><a href="">Feminino ></a></li>
-            <li><a href="">Masculno ></a></li>
-            <li><a href="">Infantil ></a></li>
-            <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
-            <li><a href="">Sobre a Nós ></a></li>
-            <li style="text-align: center;"><a href=""><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
-          </ul>
-        </div>
-        <img class="btn-menu" src="img/cancel.png" alt="">
-        </div>
-        
-        </div> 
-    </header>
+  <%-include('../partial/header.html')%>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
 
     <div class="top"><a href="/"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
@@ -43,7 +21,7 @@
     <section class="container">
         <div class="topSection">
         <h2>Minha conta</h2>
-        <p>*Nome de usuario*</p>
+        <p><%= usuario.email %></p>
         </div>
         <div class="infoUsu">
             <div class="topInfo">

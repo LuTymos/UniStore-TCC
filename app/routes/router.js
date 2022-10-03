@@ -38,14 +38,14 @@ router.get('/editar_informacao', function(req,res){
 });
 
 router.get('/usuario', function(req,res){
-    var dadosForm ={
-        id_usu: req.session.id_usu
+    var dadosUsu ={
+        id_usu: req.session.id_usu,
+       
     }
     conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
-    [dadosForm.id_usu],
-     (error, results)=>{
-        console.log(results);
-        console.log(error);
+    [dadosUsu.id_usu],
+     (error, results, fields)=>{
+        console.log(results[0]);
         if(error){
             res.json({erro: "Falha ao acessar dados"})
         }
@@ -57,6 +57,11 @@ router.get('/usuario', function(req,res){
 router.get('/vendedor', function(req,res){
     res.render('pages/vend')
 });
+
+// router.get('/sair', (req,res)=>{
+//     res.clearCookie('jwt');
+//     res.redirect('/');
+// })
 
 router.post('/login', 
 
