@@ -34,10 +34,6 @@ router.get('/cadastrar_produto', function(req,res){
 });
 
 router.get('/editar_informacao', function(req,res){
-    res.render('pages/editinf')
-});
-
-router.get('/usuario', function(req,res){
     var dadosUsu ={
         id_usu: req.session.id_usu,
        
@@ -45,7 +41,29 @@ router.get('/usuario', function(req,res){
     conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
     [dadosUsu.id_usu],
      (error, results, fields)=>{
-        console.log(results[0]);
+        console.log(results);
+        if(error){
+            res.json({erro: "Falha ao acessar dados"})
+        }
+
+
+
+        res.render('pages/editinf', {usuario: results})
+    })
+    
+    
+});
+
+router.get('/usuario', function(req,res){
+    
+    var dadosUsu ={
+        id_usu: req.session.id_usu,
+       
+    }
+    conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
+    [dadosUsu.id_usu],
+     (error, results, fields)=>{
+        console.log(results);
         if(error){
             res.json({erro: "Falha ao acessar dados"})
         }
@@ -58,10 +76,10 @@ router.get('/vendedor', function(req,res){
     res.render('pages/vend')
 });
 
-// router.get('/sair', (req,res)=>{
-//     res.clearCookie('jwt');
-//     res.redirect('/');
-// })
+router.get('/sair', (req,res)=>{
+    req.session.destroy();
+    res.redirect('/');
+})
 
 router.post('/login', 
 
@@ -90,6 +108,31 @@ router.post('/login',
     }
 
 )
+
+
+router.post('/editar', (req,res)=>{
+    console.log(req.body)
+
+    var dadosForm ={
+        nome_usu: req.body.nu,
+        email:req.body.email,
+        celular: req.body.celular,
+        rua: req.body.rua,
+        cidade: req.body.cidade,
+        cep:req.body.cep,
+        numero: req.body.numero,
+        bairo:req.body.bairo
+    }
+    console.log(dadosForm)
+    // conexao.query(
+    //     "INSERT INTO usuario SET ?",
+    //     dadosForm,
+    //     function (error, results, fields){
+    //         if(error) throw error;
+    //     }
+    // )
+    res.redirect('/usuario')
+})
 
 
 router.post('/cadastro', (req, res)=>{

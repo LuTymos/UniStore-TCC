@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/usuario.css">
 </head>
 <body>
-  <%-include('../partial/header.html')%>
+  <%-include('../partial/header.ejs')%>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
 
     <div class="top"><a href="/"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
@@ -21,7 +21,7 @@
     <section class="container">
         <div class="topSection">
         <h2>Minha conta</h2>
-        <p><%= usuario.email %></p>
+        <p><%= usuario[0].nome_usu %></p>
         </div>
         <div class="infoUsu">
             <div class="topInfo">
@@ -29,9 +29,9 @@
             <a href="/editar_informacao">Editar ></a>
         </div>
             <div class="infos">
-                <div class="info"><p>Endereço: </p> <p>Aldeia de Barueri 140, Barueri (06440-040)</p></div>
-                <div class="info"><p>Email: </p> <p>Lucastymos@gmail.com</p></div>
-                <div class="info"><p>Numero:</p> <p>(11) 978281477</p></div>
+                <div class="info"><p>Endereço: </p> <p><%= usuario[0].rua %>, <%= usuario[0].bairo %> (<%= usuario[0].cep %>)</p></div>
+                <div class="info"><p>Email: </p> <p><%= usuario[0].email %></p></div>
+                <div class="info"><p>Numero:</p> <p><%= usuario[0].celular %></p></div>
             </div>
         </div>
 
