@@ -29,6 +29,7 @@
             <a href="/editar_informacao">Editar ></a>
         </div>
             <div class="infos">
+              <% if ( usuario[0].rua == null)
                 <div class="info"><p>Endereço: </p> <p><%= usuario[0].rua %>, <%= usuario[0].bairo %> (<%= usuario[0].cep %>)</p></div>
                 <div class="info"><p>Email: </p> <p><%= usuario[0].email %></p></div>
                 <div class="info"><p>Numero:</p> <p><%= usuario[0].celular %></p></div>

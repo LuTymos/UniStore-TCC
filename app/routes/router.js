@@ -57,7 +57,7 @@ router.get('/usuario', function(req,res){
        
     }
 
-    conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
+    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
     [dadosUsu.id_usu],
      (error, results, fields)=>{
         
@@ -97,10 +97,13 @@ router.post('/login',
                 var total = Object.keys(results).length;
                 console.log(total)
                 if(total ==1){
+                    console.log("If")
                     req.session.autenticado = true;
                     req.session.id_usu = results[0].id_usu
+                }else{
+                    req.session.autenticado = null;
                 }
-                res.render("pages/index");
+                res.render("pages/index", {autenticado: req.session.autenticado});
             }
         )
     }
