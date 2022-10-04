@@ -34,7 +34,7 @@ router.get('/editar_informacao', function(req,res){
         id_usu: req.session.id_usu,
        
     }
-    conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
+    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
     [dadosUsu.id_usu],
      (error, results, fields)=>{
         // console.log(results);
@@ -132,20 +132,41 @@ router.post('/editar', (req,res)=>{
     }
     // console.log(dadosFormEnder)
     // console.log(dadosForm)
-    conexao.query(
-        "update usuario SET ? where id_usu = ?",
-        [dadosForm, usu.id_usu],
-        function (error, results, fields){
-            if(error) throw error;
+    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
+    [usu.id_usu],
+     (error, results, fields)=>{
+        // console.log(results);
+        if(error){
+            res.json({erro: "Falha ao acessar dados"})
         }
-    )
-    conexao.query(
-        "update usuario_endereco SET ? where id_usu = ?",
-        [dadosFormEnder, usu.id_usu],
-        function (error, results, fields){
-            if(error) throw error;
+
+        conexao.query(
+            "update usuario SET ? where id_usu = ?",
+            [dadosForm, usu.id_usu],
+            function (error, results, fields){
+                if(error) throw error;
+            }
+        )
+    
+        if( results[0].rua == null){
+            conexao.query(
+                "insert into usuario_endereco SET ?",
+                [dadosFormEnder, usu.id_usu],
+                function (error, results, fields){
+                    if(error) throw error;
+            })
+        }else{
+            conexao.query(
+                "update usuario_endereco SET ? where id_usu = ?",
+                [dadosFormEnder, usu.id_usu],
+                function (error, results, fields){
+                    if(error) throw error;
+            })
+        }
+        res.redirect('/usuario')
+
     })
-    res.redirect('/usuario')
+    
 })
 
 
