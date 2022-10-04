@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
-    <header>
-      <div class="logo"><a href="/"><img src="img/Vetor UniStore.svg" alt=""><h2>UniStore</h2></a></div>
-    </header>
+    <%-include ('../partial/headersimple.ejs') %>
     <main>
         <main>
             <div class="top"><a href="index.html"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
@@ -31,7 +29,7 @@
                         <label for="email">Email</label>
                         <input type="text" value="<%= usuario[0].email%>" name="email" id="email">
                         <label for="celular">Celular</label>
-                        <input type="text" value="<%= usuario[0].celular%>" name="celular" id="celular">
+                        <input type="text" value="<%= usuario[0].celular%>" class="telefone" name="celular" id="celular">
                         </div>
                         <div class="two">
                         <label for="rua">Rua</label>
@@ -49,7 +47,7 @@
                         <div class="wrap">
                             <div>
                             <label for="CEP ">CEP</label>
-                            <input type="text" name="cep" value="<%= usuario[0].cep %>" id="CEP" class="w50">
+                            <input type="text" name="cep" value="<%= usuario[0].cep %>" id="CEP" class="w50 cep">
                             </div>
                             <div>
                             <label for="numero w50">Numero</label>
@@ -99,8 +97,8 @@
       
       
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="js/slick.min.js"></script>
-      <script src="js/slide.js"></script>
+      <script src="js/jquery.mask.min.js"></script>
+      <script src="js/mascaraForms.js"></script>
       <script src="js/menu.js"></script>
       </body>
       </html>

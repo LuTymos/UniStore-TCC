@@ -14,29 +14,7 @@
     <link rel="stylesheet" href="css/carrinho.css">
 </head>
 <body>
-    <header>
-        <div class="container">       
-          <div class="logo"><a href="/"><img src="img/Vetor UniStore.svg" alt=""><h2>UniStore</h2></a></div>
-        <div class="barra-pesquisa-desktop"><input type="text"><img src="img/procurar.png" alt=""></div>
-        <div class="grupo">
-          <div class="entrar"><a href="/login"><img src="img/enter.png" alt=""><span>Entrar!</span></a></div>
-        <div class="menu">
-          <ul>
-            <li><a href="/usuario">Perfil ></a></li>
-            <li><a href="/carrinho">Carrinho ></a></li>
-            <li><a href="">Feminino ></a></li>
-            <li><a href="">Masculno ></a></li>
-            <li><a href="">Infantil ></a></li>
-            <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
-            <li><a href="">Sobre a Nós ></a></li>
-            <li style="text-align: center;"><a href=""><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
-          </ul>
-        </div>
-        <img class="btn-menu" src="img/cancel.png" alt="">
-        </div>
-        
-        </div> 
-    </header>
+  <%-include ('../partial/header.ejs') %>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
   
 
@@ -57,6 +35,7 @@
         <div class="container">
         <div class="box">
         <div class="itens">
+          
             <div class="item">
                 <div class="grupo1"></div>
                 <div class="img-item"></div>
@@ -66,6 +45,7 @@
                 <button class="btn">Excluir</button>
                 </div>
             </div>
+           
             <div class="item">
                 <div class="grupo1"></div>
                 <div class="img-item"></div>

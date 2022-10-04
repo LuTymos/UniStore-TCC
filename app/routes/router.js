@@ -4,13 +4,25 @@ var fabricaDeConexao = require("../../config/connection-factory");
 var conexao = fabricaDeConexao();
 
 router.get("/", function (req, res) {
+
+    conexao.query("SELECT * FROM unistore.uniforme",
+    (error, results, fields)=>{
+        
+        
+        if(error){
+            res.json({erro: "Falha ao acessar dados"})
+        }
+    
+
     if (req.session.autenticado) {
       autenticado = { autenticado: req.session.id_usu };
     } else {
       autenticado = { autenticado: null };
     }
-    console.log(req.session.id_usu)
-    res.render("pages/index", autenticado);
+    // console.log(req.session.id_usu)
+    console.log(results);
+    res.render("pages/index", {autenticado, produto: results});
+})
   });
 
 router.get('/login', function(req,res){
