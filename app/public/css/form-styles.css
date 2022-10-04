@@ -42,7 +42,7 @@ form input[type="text"], form input[type="password"], form input[type="text"], f
   form input[type="text"]:focus, form input[type="password"]:focus, form input[type="text"]:focus, form input[type="password"]:focus {
     outline: 0; }
 
-form input[type="button"] {
+form input[type="submit"] {
   height: 30px;
   width: 180px;
   margin: 0 auto;
@@ -51,10 +51,10 @@ form input[type="button"] {
   background-color: #F66B0E;
   color: #EFEFEF;
   border-radius: 15px;
-  margin-top: 40px; }
+  margin-top: 40px;
+cursor: pointer; }
   form input[type="button"]:hover {
-    background-color: #b34802;
-    cursor: pointer; }
+    background-color: #b34802; }
 
 select:focus {
   outline: 0; }

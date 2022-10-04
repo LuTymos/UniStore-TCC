@@ -108,7 +108,7 @@ header {
 .menu {
   display: none;
   width: 180px;
-  padding: 0px 15px 0 15px;
+  padding: 0px 15px 15px 15px;
   background-color: #112B3C;
   position: absolute;
   top: 45px;
