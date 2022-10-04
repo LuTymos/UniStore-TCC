@@ -21,7 +21,7 @@ router.get("/", function (req, res) {
     }
     // console.log(req.session.id_usu)
     console.log(results);
-    res.render("pages/index", {autenticado, produto: results});
+    res.render("pages/index", {autenticado, produtos: results});
 })
   });
 
