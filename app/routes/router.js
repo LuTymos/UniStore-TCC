@@ -13,10 +13,6 @@ router.get("/", function (req, res) {
     res.render("pages/index", autenticado);
   });
 
-// router.get('/', function(req,res){
-//     res.render('pages/index')
-// });
-
 router.get('/login', function(req,res){
     res.render('pages/login')
 });
@@ -41,7 +37,7 @@ router.get('/editar_informacao', function(req,res){
     conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
     [dadosUsu.id_usu],
      (error, results, fields)=>{
-        console.log(results);
+        // console.log(results);
         if(error){
             res.json({erro: "Falha ao acessar dados"})
         }
@@ -60,9 +56,11 @@ router.get('/usuario', function(req,res){
         id_usu: req.session.id_usu,
        
     }
+
     conexao.query("SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
     [dadosUsu.id_usu],
      (error, results, fields)=>{
+        
         console.log(results);
         if(error){
             res.json({erro: "Falha ao acessar dados"})
@@ -111,26 +109,39 @@ router.post('/login',
 
 
 router.post('/editar', (req,res)=>{
-    console.log(req.body)
+
+    var usu={
+        id_usu: req.session.id_usu
+    }
 
     var dadosForm ={
         nome_usu: req.body.nu,
         email:req.body.email,
         celular: req.body.celular,
+    }
+    var dadosFormEnder = {
         rua: req.body.rua,
         cidade: req.body.cidade,
         cep:req.body.cep,
         numero: req.body.numero,
-        bairo:req.body.bairo
+        bairo:req.body.bairo,
+        id_usu: req.session.id_usu
     }
-    console.log(dadosForm)
-    // conexao.query(
-    //     "INSERT INTO usuario SET ?",
-    //     dadosForm,
-    //     function (error, results, fields){
-    //         if(error) throw error;
-    //     }
-    // )
+    // console.log(dadosFormEnder)
+    // console.log(dadosForm)
+    conexao.query(
+        "update usuario SET ? where id_usu = ?",
+        [dadosForm, usu.id_usu],
+        function (error, results, fields){
+            if(error) throw error;
+        }
+    )
+    conexao.query(
+        "update usuario_endereco SET ? where id_usu = ?",
+        [dadosFormEnder, usu.id_usu],
+        function (error, results, fields){
+            if(error) throw error;
+    })
     res.redirect('/usuario')
 })
 
