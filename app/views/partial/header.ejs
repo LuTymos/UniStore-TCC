@@ -22,7 +22,12 @@
         <li><a href="">Infantil ></a></li>
         <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
         <li><a href="">Sobre a Nós ></a></li>
-        <li style="text-align: center;"><a href="/sair"><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
+        <% if(autenticado){%>
+          <li style="text-align: center;"><a href="/sair"><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
+          <%}else{%>
+  
+           <% }%>
+        
       </ul>
     </div>
     <img class="btn-menu" src="img/cancel.png" alt="">
