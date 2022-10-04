@@ -19,8 +19,8 @@ router.get("/", function (req, res) {
     } else {
       autenticado = { autenticado: null };
     }
-    // console.log(req.session.id_usu)
-    console.log(results);
+    console.log(autenticado)
+    // console.log(results);
     res.render("pages/index", {autenticado, produtos: results});
 })
   });
@@ -109,11 +109,11 @@ router.post('/login',
                 var total = Object.keys(results).length;
                 console.log(total)
                 if(total ==1){
-                    console.log("If")
                     req.session.autenticado = true;
                     req.session.id_usu = results[0].id_usu
                 }else{
                     req.session.autenticado = null;
+                    
                 }
                 res.render("pages/index", {autenticado: req.session.autenticado});
             }
