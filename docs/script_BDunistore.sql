@@ -34,9 +34,11 @@ nome_usu varchar(50),
 senha varchar(20),
 celular varchar(15)
 );
-select * from usuario;
-alter table usuario
-add column celular varchar(15);
+
+update usuario SET cpf = '123.123.123-12' where id_usu = 2;
+
+
+
 
 create table instituicao (
 nome_instituicao varchar(150) not null primary key, 
@@ -58,6 +60,9 @@ id_usu int,
 FOREIGN KEY(id_usu) REFERENCES usuario(id_usu)
 );
 
+
+
+
 create table uniforme (
 id_produto int not null auto_increment,
 tamanho enum('P', 'M', 'G','infantil') not null, 
@@ -78,7 +83,13 @@ FOREIGN KEY (Id_venda) REFERENCES venda(Id_venda)
 );
 select * from uniforme;
 
-drop table uniforme;
+SELECT * FROM unistore.usuario inner join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = 1;
+insert into usuario values ('','168.391.360-43', 'lucas1234@gmail.com', 'lucas', 'lucas2', '1234','(11)978281477');
+select * from usuario;
+insert into usuario_endereco values ('', 'aaaa aaaaaaa', '06440-467', 'bla bla bla', 'barueri', '145', '1');
+select * from usuario_endereco;
+
+drop database unistore;
 
 
 
