@@ -284,6 +284,7 @@ section.instituicoes {
 section.cidade {
   background-color: #112B3C;
   margin-top: 100px;
+  padding: 20px;
   height: 100px;
   width: 100%; }
   section.cidade .container {

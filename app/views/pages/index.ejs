@@ -15,6 +15,7 @@
 </head>
 <body>
     <%-include('../partial/header.ejs')%>
+    <% console.log(autenticado) %>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
     <nav class="categorias"><h3>infantil</h3> <h3>masculino</h3> <h3>feminino</h3></nav>
 
@@ -49,8 +50,8 @@
       <% for(i = 0; i < 5; i++){ %>
   <div class="box-produto">
     <div class="img-box"></div>
-    <p class="descricao"><%= produtos[i].titulo %></p>
-    <span class="preco">R$<%= produtos[i].valor %></span>
+    <p class="descricao"><%= results[i].titulo %></p>
+    <span class="preco">R$<%= results[i].valor %></span>
   </div>
   <% } %>
   
