@@ -23,7 +23,12 @@
         <li><a href="">Feminino ></a></li>
         <li><a href="">Masculno ></a></li>
         <li><a href="">Infantil ></a></li>
-        <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
+        <% if(autenticado.autenticado){%>
+          <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
+          <%}else{%>
+            <li><a href="/login">Cadastrar Produto ></a></li>
+           <% }%>
+        
         <li><a href="">Sobre a Nós ></a></li>
         <% if(autenticado.autenticado){%>
           <li style="text-align: center;"><a href="/sair"><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
