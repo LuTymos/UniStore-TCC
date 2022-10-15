@@ -233,7 +233,7 @@ header {
   cursor: pointer; }
 
 li.slick-active button {
-  background: #112B3C;
+  background-color: #112B3C;
   color: #373855; }
 
 .slick-slide:focus {

@@ -96,6 +96,29 @@ router.get('/sair', (req, res) => {
     res.redirect('/');
 })
 
+// router.get('/produto', (req, res)=>{
+//     res.render('pages/produto')
+// })
+
+router.get('/produto/:id', (req, res) => {
+
+    var id_produto = req.params.id;
+
+    conexao.query(
+        "select * from uniforme left join usuario where id_produto = ? ", [id_produto],
+        function (error, results, fields) {
+           
+            id_vend = results[0].id_usu;
+        
+                     console.log(results)
+                    res.render('pages/produto', { info: results,})
+
+        }
+    )
+
+})
+
+
 router.post('/login',
 
     function (req, res) {

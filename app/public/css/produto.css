@@ -1,0 +1,87 @@
+.info_produto{
+    margin-top: 30px;
+    width: 100%;
+    padding: 0 5%;
+}
+
+.img-produto{
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    background-color: #ccc;
+}
+
+.sub_info{
+width: 300px;
+margin: 20px auto;
+}
+
+.wrap{
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrap p{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.wrap a{
+    color: white;
+    text-decoration: none;
+    background-color: #F66B0E;
+    text-align: center;
+    padding: 7px 0;
+    height: 30px;
+    width: 180px;
+    border-radius: 10px;
+}
+
+.detalhes{
+    color: white;
+    padding: 20px 5%;
+    background-color: #112B3C;
+    height: 400px;
+}
+
+.detalhes p{
+    margin: 20px 0;
+}
+
+
+section.more-products{
+    padding: 50px 5%;
+}
+
+
+
+ .box-produto{
+    background-color: white;
+    width: 180px;
+    height: 260px;
+    margin: 0 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+ .box-produto div.img-box{
+    width: 95%;
+    height: 100px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+ .box-produto p{
+    text-align: left;
+    margin: 20px 0;
+}
+
+ .box-produto .preco{
+    font-weight: bold;
+    margin-top: 20px;
+}

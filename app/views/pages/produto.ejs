@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="slick-theme.css">
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="form-styles.css">
-    <link rel="stylesheet" href="produto.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/produto.css">
+    <link rel="stylesheet" href="css/global.css">
     
 </head>
+
+<%-include('../partial/header.ejs')%>
+<div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
 <body>
     <main>
         <div class="top"><a href="/usuario"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
@@ -21,9 +23,9 @@
             <div class="img-produto"><img src="" alt=""></div>
 
             <div class="sub_info">
-                <h2>Titulo Produto</h2>
+                <h2><%= info[0].titulo %></h2>
                 <div class="wrap">
-                    <p>R$30,00</p>
+                    <p>R$<%= info[0].valor %>,00</p>
                     <a href="">adicionar ao carrinho</a>
                 </div>
             </div>
@@ -33,12 +35,12 @@
             <h3>Detalhes do produto:</h3>
             <p>Anunciante: </p>
             <p>Contato: </p>
-            <p>Tamanho: </p>
-            <p>Cor: </p>
-            <p>Condiçao: </p>
+            <p>Tamanho: <%= info[0].tamanho %></p>
+            <p>Cor: <%= info[0].cor %></p>
+            <p>Condição: <%= info[0].condicao %></p>
             
             <h3>Descrição:</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quia, sint ipsum laborum nisi ab ullam. Minima fuga accusantium esse repudiandae dolor? Earum asperiores possimus reiciendis ullam provident repellat molestias.</p>
+            <p><%= info[0].descricao %></p>
             
         </section>
 
@@ -91,8 +93,24 @@
 
 
     </main>
+
+    <footer>
+      <div class="container">
+        <ul>
+          <li><h3>UniStore</h3></li>
+          <li><h3>Quem Somos</h3></li>
+          <li><h3>Politica de Privacidade</h3></li>
+        </ul>
+        <div class="social">
+          <img src="img/instagram.png" alt="">
+          <img src="img/facebook-app-symbol.png" alt="">
+          <img src="img/twitter.png" alt="">
+        </div>
+      </div>
+    </footer>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="slick.min.js"></script>
-    <script src="slide.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/slide.js"></script>
 </body>
 </html>
