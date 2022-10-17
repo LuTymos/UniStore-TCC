@@ -86,6 +86,11 @@ div.box .endereco p{
     color: white;
     font-size: 15px;
 }
+
+div.box .endereco a{
+    color: white;
+    text-decoration: none;
+}
 div.box .endereco button{
     color: white;
     border: none;

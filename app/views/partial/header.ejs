@@ -5,7 +5,6 @@
     <div class="grupo">
 
       <% if(autenticado.autenticado){%>
-        <% console.log(autenticado.autenticado)%>
       <%}else{%>
         
         <div class="entrar"><a href="/login"><img src="/img/enter.png" alt=""><span>Entrar!</span></a></div>
@@ -16,26 +15,22 @@
       <ul>
         <% if(autenticado.autenticado){%>
           <li><a href="/usuario">Perfil ></a></li>
-          <%}else{%>
-            <li><a href="/login">Perfil ></a></li>
-           <% }%>
-        <li><a href="/carrinho">Carrinho ></a></li>
+          <li><a href="/carrinho">Carrinho ></a></li>
         <li><a href="">Feminino ></a></li>
         <li><a href="">Masculno ></a></li>
         <li><a href="">Infantil ></a></li>
-        <% if(autenticado.autenticado){%>
-          <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
-          <%}else{%>
-            <li><a href="/login">Cadastrar Produto ></a></li>
-           <% }%>
-        
+        <li><a href="/cadastrar_produto">Cadastrar Produto ></a></li>
         <li><a href="">Sobre a Nós ></a></li>
-        <% if(autenticado.autenticado){%>
-          <li style="text-align: center;"><a href="/sair"><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
+        <li style="text-align: center;"><a href="/sair"><img style="width: 26px;"src="img/sair.png" alt=""> <span style="top: -8px; position:relative;"> Sair ></span></a></li>
           <%}else{%>
-  
+            <li><a href="/login">Perfil ></a></li>
+            <li><a href="/login">Carrinho ></a></li>
+            <li><a href="">Feminino ></a></li>
+            <li><a href="">Masculno ></a></li>
+            <li><a href="">Infantil ></a></li>
+            <li><a href="/login">Cadastrar Produto ></a></li>
+            <li><a href="">Sobre a Nós ></a></li>
            <% }%>
-        
       </ul>
     </div>
     <img class="btn-menu" src="/img/cancel.png" alt="">

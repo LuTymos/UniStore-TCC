@@ -24,8 +24,7 @@ router.get("/", function (req, res) {
             } else {
                 autenticado = { autenticado: null };
             }
-            console.log(autenticado)
-            // console.log(results);
+            
             res.render("pages/index", { autenticado, produtos: results });
         })
 });
@@ -39,7 +38,17 @@ router.get('/cadastro', function (req, res) {
 });
 
 router.get('/carrinho', function (req, res) {
-    res.render('pages/carrinho')
+    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
+    req.session.id_usu,
+    function(error, results, fields){
+        if (error) {
+            res.json({ erro: "Falha ao acessar dados" })
+        }
+
+        res.render('pages/carrinho', {info: results})
+    }
+    )
+    
 });
 
 router.get('/cadastrar_produto', function (req, res) {
@@ -78,7 +87,7 @@ router.get('/usuario', function (req, res) {
         [dadosUsu.id_usu],
         (error, results, fields) => {
 
-            console.log(results);
+            
             if (error) {
                 res.json({ erro: "Falha ao acessar dados" })
             }
@@ -109,7 +118,7 @@ router.get('/produto/:id', (req, res) => {
         function (error, results, fields) {
 
 
-            console.log(results)
+            
             res.render('pages/produto', { info: results, })
 
         }
@@ -125,7 +134,7 @@ router.post('/login',
             email: req.body.email,
             senha: req.body.senha
         }
-        console.log(dadosForm)
+        
 
         var result = conexao.query(
             "select * from usuario where email = ? and senha = ?",
@@ -211,7 +220,7 @@ router.post('/editar', (req, res) => {
 
 
 router.post('/cadastro', (req, res) => {
-    console.log(req.body)
+    
 
     var dadosForm = {
         nome: req.body.nome,
@@ -238,7 +247,7 @@ const armazenamentoMemoria = multer.memoryStorage()
 //adiciona este espaÃ§o ao mÃ©todo de upload
 const upload2 = multer({ storage: armazenamentoMemoria })
 router.post('/cadastroProduto', upload2.single('file'), (req, res) => {
-    console.log(req.body)
+    
     if (!req.file) {
         console.log("Falha no carregamento");
     } else {

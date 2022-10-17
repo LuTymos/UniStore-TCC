@@ -57,7 +57,12 @@
             </div>
             
         </div>
-        <div class="endereco"><p>Endereço de entrega: Barueri, 06440-040</p> <Button>Editar ></Button></div>
+        <% if ( info[0].rua != null){ %>
+          <div class="endereco"><p>Endereço: </p> <p><%= info[0].rua %>, N° <%= info[0].numero %>, <%= info[0].bairo %> </p> <a href="/editar_informacao">Editar ></a></div>
+          <% }else{ %>
+            <div class="endereco"><p>Endereço: </p> <a href="/editar_informacao">Adicionar endereco</a></div>
+          <%}%>
+        
     </div>
 
         <div class="box-valor-desktop">
