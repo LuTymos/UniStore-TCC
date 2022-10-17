@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/produto.css">
-    <link rel="stylesheet" href="css/global.css">
+    <title>UniStore</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/produto.css">
+    <link rel="stylesheet" href="/css/global.css">
     
 </head>
 
 <%-include('../partial/header.ejs')%>
-<div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
+<div class="barra-pesquisa-mobile"><input type="text"><img src="/img/procurar.png" alt=""></div>
 <body>
     <main>
-        <div class="top"><a href="/usuario"><img src="img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
+        <div class="top"><a href="/"><img src="/img/seta-esquerda.png" alt=""><p>Voltar</p></a></div>
 
         
 
@@ -33,8 +35,8 @@
 
         <section class="detalhes">
             <h3>Detalhes do produto:</h3>
-            <p>Anunciante: </p>
-            <p>Contato: </p>
+            <p>Anunciante: <%=info[0].nome_usu%></p>
+            <p>Contato: <%=info[0].celular%></p>
             <p>Tamanho: <%= info[0].tamanho %></p>
             <p>Cor: <%= info[0].cor %></p>
             <p>Condição: <%= info[0].condicao %></p>
@@ -102,15 +104,15 @@
           <li><h3>Politica de Privacidade</h3></li>
         </ul>
         <div class="social">
-          <img src="img/instagram.png" alt="">
-          <img src="img/facebook-app-symbol.png" alt="">
-          <img src="img/twitter.png" alt="">
+          <img src="/img/instagram.png" alt="">
+          <img src="/img/facebook-app-symbol.png" alt="">
+          <img src="/img/twitter.png" alt="">
         </div>
       </div>
     </footer>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/slide.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/slide.js"></script>
 </body>
 </html>
