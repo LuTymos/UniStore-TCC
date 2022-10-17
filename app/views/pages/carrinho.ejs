@@ -55,10 +55,20 @@
                 <button class="btn">Excluir</button>
                 </div>
             </div>
+
+            <div class="item">
+              <div class="grupo1"></div>
+              <div class="img-item"></div>
+              <p class="nome-produto">Camiseta ITB Brásilio Floreres de Aze...</p>
+              <div class="grupo2">
+              <span class="preco">R$20,00</span>
+              <button class="btn">Excluir</button>
+              </div>
+          </div>
             
         </div>
         <% if ( info[0].rua != null){ %>
-          <div class="endereco"><p>Endereço: </p> <p><%= info[0].rua %>, N° <%= info[0].numero %>, <%= info[0].bairo %> </p> <a href="/editar_informacao">Editar ></a></div>
+          <div class="endereco"><p>Endereço: </p> <p><%= info[0].rua %>,<%= info[0].numero %>, <%= info[0].bairo %> </p> <a href="/editar_informacao">Editar></a></div>
           <% }else{ %>
             <div class="endereco"><p>Endereço: </p> <a href="/editar_informacao">Adicionar endereco</a></div>
           <%}%>

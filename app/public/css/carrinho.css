@@ -27,7 +27,9 @@
 }
 
 div.box{
+    
     width: 50%;
+
     background-color: white;
     border-radius: 15px;
     border: 2px solid #ccc;
@@ -35,6 +37,7 @@ div.box{
 }
 
 div.box .itens{
+    overflow-y: scroll;
     width: 90%;
     height: 270px;
     margin: 0 auto;
@@ -43,6 +46,19 @@ div.box .itens{
     flex-direction: column;
     align-items: center;
 }
+
+.itens::-webkit-scrollbar {
+    width: 15px;               
+  }
+  
+  .itens::-webkit-scrollbar-track {
+    background: #ccc;        
+  }
+  
+  .itens::-webkit-scrollbar-thumb {
+    background-color: #F66B0E;    
+    border-radius: 20px;       
+  }
 
 div.box .itens .item{
     justify-content: center;
@@ -73,12 +89,13 @@ div.box .itens .item .grupo2{
 }
 
 div.box .endereco{
+    z-index: 999;
     background-color: #205375;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 5px 15px;
     border-radius:  0 0 15px 15px;
-    border-bottom: #205375;
+    border-bottom: #205375; align-items: center;
 
 }
 
@@ -90,6 +107,7 @@ div.box .endereco p{
 div.box .endereco a{
     color: white;
     text-decoration: none;
+    font-size: 12px;
 }
 div.box .endereco button{
     color: white;

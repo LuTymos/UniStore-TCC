@@ -143,7 +143,7 @@ router.post('/login',
                 if (error) throw error;
 
                 var total = Object.keys(results).length;
-                console.log(total)
+                
                 if (total == 1) {
                     req.session.autenticado = true;
                     req.session.id_usu = results[0].id_usu

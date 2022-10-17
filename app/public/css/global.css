@@ -39,6 +39,7 @@ header {
     header .container {
       justify-content: space-between; } }
   header .grupo {
+    width: 100px;
     display: flex;
     justify-content: space-between;
     position: relative; }
@@ -310,6 +311,16 @@ section.cidade {
     width: 350px;
     font-weight: bold; }
     @media screen and (max-width: 768px) {
+      .menu {
+        display: none;
+        width: 180px;
+        padding: 0px 15px 15px 15px;
+        background-color: #112B3C;
+        position: absolute;
+        top: 45px;
+        
+         left: -50px;
+        z-index: 1; }
       section.cidade p {
         color: #efefef;
         font-size: 16px;
