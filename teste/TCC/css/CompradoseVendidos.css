@@ -1,0 +1,31 @@
+#Status-produtos{
+    height: 543px;
+    width: 747px;
+    background-color: white;
+    margin: 4em 10em ;
+    position: relative;
+    left: 10em;
+    padding: 2em 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#Status-produtos div{
+    border: solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6em;
+
+}
+
+#Status-produtos ul{
+    list-style: none;
+}
+
+#Status-produtos button{
+    position:relative;
+    left: -6.3em;
+    
+}

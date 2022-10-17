@@ -1,0 +1,65 @@
+#Caixas{
+    display: flex;
+    justify-content: center;
+}
+
+#Caixas section{
+    background-color: #205375;
+    margin: 3em ;
+    color: #fff;
+
+}
+#Caixas #Quadrado{
+    width: 300px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.9em;
+}
+#Caixas #Quadrado p{
+    margin: 0.5em 1.5em;
+}
+
+/*Final Caixa Quadrado*/
+
+#Caixas #Quadrado button{
+   height: max-content ;
+   width: max-content;
+   padding: 0.5em 2em;
+   background-color: #1f6496;
+   border: none;
+   color: #fff;
+}
+
+#Caixas #Retangulo{
+    width: 517px;
+    height: 194px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1em;
+    position: relative;
+}
+#Caixas #Preço{
+    position: absolute;
+    bottom: -4em;
+    display: flex ;
+    justify-content: space-between;
+    color: black;
+    left: 0;
+    width: 517px;
+    align-items: center;
+}
+#Caixas #Preço button{
+    border-radius: 8px;
+    height: max-content;
+    width: max-content;
+    padding: 0.5em 3em;
+    background-color: #205375;
+    border: none;
+    color: #fff;
+}
+
+/*Final Caixa Retangulo*/
