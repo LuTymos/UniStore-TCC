@@ -67,8 +67,8 @@
           </div>
             
         </div>
-        <% if ( info[0].rua != null){ %>
-          <div class="endereco"><p>Endereço: </p> <p><%= info[0].rua %>,<%= info[0].numero %>, <%= info[0].bairo %> </p> <a href="/editar_informacao">Editar></a></div>
+        <% if ( info_usu[0].rua != null){ %>
+          <div class="endereco"><p>Endereço: </p> <p><%= info_usu[0].rua %>,<%= info_usu[0].numero %>, <%= info_usu[0].bairo %> </p> <a href="/editar_informacao">Editar></a></div>
           <% }else{ %>
             <div class="endereco"><p>Endereço: </p> <a href="/editar_informacao">Adicionar endereco</a></div>
           <%}%>

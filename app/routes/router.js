@@ -3,94 +3,195 @@ var router = express.Router();
 var fabricaDeConexao = require("../../config/connection-factory");
 var conexao = fabricaDeConexao();
 
+// Funções DAO
 var funcoesDAO = require("../models/funcoesDAO");
 funcoesDAO = new funcoesDAO(conexao);
 
-const multer = require('multer'); //para instalar --> npm install --save multer
-// documentaÃ§Ã£o --> https://www.npmjs.com/package/multer
-const path = require('path'); //modulo para acesso e interaÃ§Ã£o com arquivos de sistema
-// documentaÃ§Ã£o --> https://nodejs.dev/en/learn/the-nodejs-path-module
+// Multer
+const multer = require('multer');
+const path = require('path');
 
+
+
+
+
+///////////////////////////////////////////////////////
+// HOME
 router.get("/", async function (req, res) {
     try {
-
-
+        // Chamando busca
         produtos = await funcoesDAO.buscarUniformes();
-        console.log(produtos)
 
+        // Estado de Autenticado
         if (req.session.autenticado) {
             autenticado = { autenticado: req.session.id_usu };
         } else {
             autenticado = { autenticado: null };
         }
-
+        // Renderizando com o estado do autenticado e com o resultado da busca
         res.render("pages/index", { autenticado, produtos });
 
     } catch (e) {
         console.log(e); // console log the error so we can see it in the console
         res.json({ erro: "Falha ao acessar dados" });
     }
-
-    // conexao.query("SELECT * FROM unistore.uniforme",
-    //     (error, results, fields) => {
-
-
-    //         if (error) {
-    //             res.json({ erro: "Falha ao acessar dados" })
-    //         }
-
-
-    //         if (req.session.autenticado) {
-    //             autenticado = { autenticado: req.session.id_usu };
-    //         } else {
-    //             autenticado = { autenticado: null };
-    //         }
-
-    //         res.render("pages/index", { autenticado, produtos: results });
-    //     })
 });
+// /////////////////////////////////////
 
+// LOGIN
 router.get('/login', function (req, res) {
     res.render('pages/login')
 });
 
-router.get('/itens', (req, res) => {
+router.post('/login', async function (req, res) {
+    // Pegando dados do formulario
+    var dadosForm = {
+        email: req.body.email,
+        senha: req.body.senha
+    }
+    // fazendo busca dos dados no banco
+    login = await funcoesDAO.login(dadosForm);
+    // verificando se está certo
+    var total = Object.keys(login).length;
+    // verificando se o usuario existe
+    if (total == 1) {
+        req.session.autenticado = true;
+        req.session.id_usu = login[0].id_usu
+    } else {
+        req.session.autenticado = null;
 
-    conexao.query("SELECT * FROM unistore.uniforme",
+    }
+    res.redirect('/');
+})
+
+// ////////////////////////////////////
+
+// ITENS
+router.get('/itens', async (req, res) => {
+    produtos = await funcoesDAO.buscarUniformes();
+    res.render('pages/itens', { produtos })
+})
+
+// ///////////////////////////////
+
+// CADASTRO
+router.get('/cadastro', function (req, res) {
+    res.render('pages/cadastro')
+});
+
+
+router.post('/cadastro', async (req, res) => {
+    var dadosForm = {
+        nome: req.body.nome,
+        nome_usu: req.body.nome_usu,
+        email: req.body.email,
+        celular: req.body.celular,
+        cpf: req.body.cpf,
+        senha: req.body.senha
+    }
+
+    cadastro = await funcoesDAO.cadastro(dadosForm);
+
+    res.redirect('/login')
+
+})
+
+// ////////////////////////////////////
+// CARRINHO
+router.get('/carrinho', async function (req, res) {
+    // salvando o id em uma varivel
+    usu = req.session.id_usu
+    // buscando as informações usando o id do usuario
+    info_usu = await funcoesDAO.buscarUsuEndereco(usu)
+
+    // renderizando com as informações recebidas do usu
+    res.render('pages/carrinho', { info_usu })
+});
+
+router.get('/adicionarCarrinho/:id', (req, res) => {
+    console.log(req.params.id)
+    if (req.session.carrinho) {
+        if (req.session.carrinho.indexOf(req.params.id) < 0) {
+            total = req.session.carrinho.length;
+            req.session.carrinho[total] = req.params.id
+        }
+
+    } else {
+        req.session.carrinho = new Array();
+        req.session.carrinho[0] = req.params.id
+    }
+
+    console.log(req.session.carrinho)
+    res.redirect('/carrinho')
+})
+
+
+// /////////////////////////////
+// CADASTRO DE PRODUTO
+router.get('/cadastrar_produto', function (req, res) {
+    res.render('pages/cadproduto')
+});
+
+
+
+var storagePasta = multer.diskStorage({
+    destination: (req, file, callBack)=>{
+    callBack(null, './app/public/img/temp/') // diretório de destino  
+    },
+    filename: (req, file, callBack) =>{
+    callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+var upload = multer({ storage: storagePasta })
+router.post('/cadastroProduto',
+upload.single('file'),
+async (req, res) => {
+
+    if (!req.file) {
+        console.log("Falha no carregamento");
+    } else {
+       caminhoArquivo = "img/temp/"+req.file.filename;
+
+        var dadosForm = {
+            foto: null,
+            fotoCaminho: caminhoArquivo,
+            titulo: req.body.TituloProduto,
+            tamanho: req.body.tamanho,
+            cor: req.body.cor,
+            condicao: req.body.condicao,
+            contato: req.body.contato,
+            descricao: req.body.descricao,
+            valor: req.body.preco,
+            nome_instituicao: req.body.instituicao,
+            id_usu: req.session.id_usu,
+        }
+
+        cadastrar = await funcoesDAO.cadastroProduto(dadosForm);
+        res.redirect('/')
+    }
+})
+// /////////////////////////////
+
+// USUARIO
+
+router.get('/usuario', function (req, res) {
+
+    var dadosUsu = {
+        id_usu: req.session.id_usu,
+
+    }
+
+    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
+        [dadosUsu.id_usu],
         (error, results, fields) => {
 
 
             if (error) {
                 res.json({ erro: "Falha ao acessar dados" })
             }
-
-
-            res.render('pages/itens', { produtos: results })
+            res.render('pages/usu', { usuario: results })
         })
-})
 
-router.get('/cadastro', function (req, res) {
-    res.render('pages/cadastro')
-});
-
-router.get('/carrinho', function (req, res) {
-
-
-    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
-        req.session.id_usu,
-        function (error, results, fields) {
-            if (error) {
-                res.json({ erro: "Falha ao acessar dados" })
-            }
-
-            res.render('pages/carrinho', { info: results })
-        }
-    )
-
-});
-
-router.get('/cadastrar_produto', function (req, res) {
-    res.render('pages/cadproduto')
 });
 
 router.get('/editar_informacao', function (req, res) {
@@ -113,109 +214,6 @@ router.get('/editar_informacao', function (req, res) {
 
 
 });
-
-router.get('/usuario', function (req, res) {
-
-    var dadosUsu = {
-        id_usu: req.session.id_usu,
-
-    }
-
-    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
-        [dadosUsu.id_usu],
-        (error, results, fields) => {
-
-
-            if (error) {
-                res.json({ erro: "Falha ao acessar dados" })
-            }
-            res.render('pages/usu', { usuario: results })
-        })
-
-});
-
-router.get('/vendedor', function (req, res) {
-    res.render('pages/vend')
-});
-
-router.get('/sair', (req, res) => {
-    req.session.destroy();
-    res.redirect('/');
-})
-
-// router.get('/produto', (req, res)=>{
-//     res.render('pages/produto')
-// })
-
-router.get('/produto/:id', (req, res) => {
-
-    var id_produto = req.params.id;
-
-    conexao.query(
-        "SELECT * FROM unistore.uniforme left join usuario on (uniforme.id_usu = usuario.id_usu) where id_produto = ?", [id_produto],
-        function (error, results, fields) {
-
-
-
-            res.render('pages/produto', { info: results, })
-
-        }
-    )
-
-})
-
-router.get('/adicionarCarrinho/:id', (req, res) => {
-    console.log(req.params.id)
-    // var lista = new Array();
-    if (req.session.carrinho) {
-        if (req.session.carrinho.indexOf(req.params.id) < 0) {
-            total = req.session.carrinho.length;
-            req.session.carrinho[total] = req.params.id
-        }
-
-    } else {
-        req.session.carrinho = new Array();
-        req.session.carrinho[0] = req.params.id
-    }
-    // req.session.
-
-    console.log(req.session.carrinho)
-    res.redirect('/carrinho')
-})
-
-
-router.post('/login',
-
-    function (req, res) {
-        var dadosForm = {
-            email: req.body.email,
-            senha: req.body.senha
-        }
-
-
-        var result = conexao.query(
-            "select * from usuario where email = ? and senha = ?",
-            [dadosForm.email, dadosForm.senha],
-            function (error, results, fields) {
-                if (error) throw error;
-
-                var total = Object.keys(results).length;
-
-                if (total == 1) {
-                    req.session.autenticado = true;
-                    req.session.id_usu = results[0].id_usu
-                } else {
-                    req.session.autenticado = null;
-
-                }
-                // res.render("pages/index", {autenticado: req.session.autenticado});
-                res.redirect('/');
-            }
-        )
-    }
-
-)
-
 
 router.post('/editar', (req, res) => {
 
@@ -274,68 +272,50 @@ router.post('/editar', (req, res) => {
         })
 
 })
+// //////////////////////////////////////
+
+
+router.get('/vendedor', function (req, res) {
+    res.render('pages/vend')
+});
+
+router.get('/sair', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+})
 
 
 
+router.get('/produto/:id', (req, res) => {
 
-router.post('/cadastro', (req, res) => {
-
-
-    var dadosForm = {
-        nome: req.body.nome,
-        nome_usu: req.body.nome_usu,
-        email: req.body.email,
-        celular: req.body.celular,
-        cpf: req.body.cpf,
-        senha: req.body.senha
-    }
-
+    var id_produto = req.params.id;
 
     conexao.query(
-        "INSERT INTO usuario SET ?",
-        dadosForm,
+        "SELECT * FROM unistore.uniforme left join usuario on (uniforme.id_usu = usuario.id_usu) where id_produto = ?", [id_produto],
         function (error, results, fields) {
-            if (error) throw error;
+
+
+
+            res.render('pages/produto', { info: results, })
+
         }
     )
-    res.redirect('/login')
 
 })
 
-const armazenamentoMemoria = multer.memoryStorage()
-//adiciona este espaÃ§o ao mÃ©todo de upload
-const upload2 = multer({ storage: armazenamentoMemoria })
-router.post('/cadastroProduto', upload2.single('file'), (req, res) => {
 
-    if (!req.file) {
-        console.log("Falha no carregamento");
-    } else {
-        let fileContent = req.file.buffer.toString('base64');
 
-        var dadosForm = {
-            foto: fileContent,
-            titulo: req.body.TituloProduto,
-            tamanho: req.body.tamanho,
-            cor: req.body.cor,
-            condicao: req.body.condicao,
-            contato: req.body.contato,
-            descricao: req.body.descricao,
-            valor: req.body.preco,
-            nome_instituicao: req.body.instituicao,
-            id_usu: req.session.id_usu
-        }
 
-        conexao.query(
-            "INSERT INTO uniforme SET ?",
-            dadosForm,
-            function (error, results, fields) {
-                if (error) throw error;
-                res.redirect('/')
-            }
-        )
-        res.redirect('/')
-    }
-})
+
+
+
+
+
+
+
+
+
+
 
 
 
