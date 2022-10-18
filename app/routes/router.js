@@ -141,6 +141,13 @@ router.get('/produto/:id', (req, res) => {
 
 })
 
+router.get('/adicionarCarrinho/:id', (req,res)=>{
+    produto = req.params.id;
+    console.log(produto)
+
+    res.redirect('/carrinho')
+})
+
 
 router.post('/login',
 
@@ -232,6 +239,8 @@ router.post('/editar', (req, res) => {
         })
 
 })
+
+
 
 
 router.post('/cadastro', (req, res) => {
