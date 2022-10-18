@@ -15,10 +15,16 @@ router.get("/", async function (req, res) {
     try {
 
 
-       produtos = await funcoesDAO.buscarUniformes();
+        produtos = await funcoesDAO.buscarUniformes();
         console.log(produtos)
 
-        res.render("pages/index", {autenticado, produtos });
+        if (req.session.autenticado) {
+            autenticado = { autenticado: req.session.id_usu };
+        } else {
+            autenticado = { autenticado: null };
+        }
+
+        res.render("pages/index", { autenticado, produtos });
 
     } catch (e) {
         console.log(e); // console log the error so we can see it in the console
