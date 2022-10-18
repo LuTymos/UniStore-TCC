@@ -14,12 +14,20 @@
 
     margin-top: 30px;
 
-    display: inline-block;
+
 
     border-radius: 10px;
+    
+    position: relative;
+
+    cursor: pointer;
 
 }
 
+.box-produto a{
+    color: black;
+    text-decoration: none;
+  }
 
 .box-produto div.img-box{
 
@@ -37,9 +45,8 @@
 
  .box-produto p{
 
-    text-align: left;
-
-    margin: 20px 0;
+    text-align: center;
+    margin: 20px 0; 
 
 }
 
@@ -48,9 +55,9 @@
  .box-produto .preco{
 
     font-weight: bold;
-
-    margin-top: 20px;
-
+    position: absolute;
+    bottom: 30px;
+    left: 40%;
 }
 .conteiner{
     padding: 0 3%;
@@ -59,16 +66,16 @@
     align-items: center;
     justify-content: space-around;
     max-width:1100px;
-    flex-wrap: wrap;
+    flex-wrap: wrap !important; 
 }
 
 .caixa{
     background-color: #112B3C;
     color: #fff;
-    padding: 30px 20px;
+    padding: 20px 20px;
     font-size: 20pt;
     font-weight: bolder;
-    
+    margin-top: 30px;
 }
 
 .filtros{

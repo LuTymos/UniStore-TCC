@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniStore</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/itens.css">
+</head>
+<body>
+    <%-include('../partial/header.ejs')%>
+    <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
+    <div class="caixa">
+        <span>Filtros:</span>
+        <div class="filtros">
+        <select name="genero" id="genero">
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Infantil">Infantil</option>
+        </select>
+        <select name="cidade" id="cidade">
+            <option value="Barueri">Barueri</option>
+            <option value="Osasco">Osasco</option>
+            <option value="Carapicuiba">Carapicuiba</option>
+            <option value="Santana de Parnaiba">Santana de Parnaiba</option>
+        </select>
+        <select name="tamanho" id="tamanho">
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+        </select>
+        <input type="number" placeholder="Preço:" name="Preço" id="Preço">
+    </div>
+</div>
+<div class="container">
+<% for(i = 0; i < produtos.length; i++){ %>
+    <div class="box-produto">
+      <a href="/produto/<%-produtos[i].id_produto%>">
+        <!-- <a href="/produto"> -->
+      <div class="img-box"></div>
+      <p class="descricao"><%= produtos[i].titulo %></p>
+      <span class="preco">R$<%= produtos[i].valor %></span>
+    </a>
+    </div>
+    <% } %>
+</div>
+    
+
+ <nav >
+    <a href="">Proximo</a>
+    <a href="">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+ </nav>
+  
+ <footer>
+    <div class="container">
+      <ul>
+        <li><h3>UniStore</h3></li>
+        <li><h3>Quem Somos</h3></li>
+        <li><h3>Politica de Privacidade</h3></li>
+      </ul>
+      <div class="social">
+        <img src="img/instagram.png" alt="">
+        <img src="img/facebook-app-symbol.png" alt="">
+        <img src="img/twitter.png" alt="">
+      </div>
+    </div>
+  </footer>
+  
+  
+  
+  
+  
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/slick.min.js"></script>
+  <script src="js/slide.js"></script>
+  <script src="js/menu.js"></script>
+  </body>
+  </html>

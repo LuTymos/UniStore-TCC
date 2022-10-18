@@ -33,6 +33,21 @@ router.get('/login', function (req, res) {
     res.render('pages/login')
 });
 
+router.get('/itens', (req,res)=>{
+
+    conexao.query("SELECT * FROM unistore.uniforme",
+    (error, results, fields) => {
+
+
+        if (error) {
+            res.json({ erro: "Falha ao acessar dados" })
+        }
+
+
+    res.render('pages/itens', {produtos: results})
+    })
+})
+
 router.get('/cadastro', function (req, res) {
     res.render('pages/cadastro')
 });

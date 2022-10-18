@@ -14,7 +14,9 @@ html, body {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-around; }
+  justify-content: space-around; 
+  flex-wrap: wrap;
+}
 
   .top {
     width: 80%;

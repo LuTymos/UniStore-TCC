@@ -43,7 +43,7 @@ margin: 20px auto;
     color: white;
     padding: 20px 5%;
     background-color: #112B3C;
-    height: 400px;
+    min-height: 400px;
 }
 
 .detalhes p{
