@@ -22,7 +22,14 @@
         
 
         <section class="info_produto">
-            <div class="img-produto"><img src="" alt=""></div>
+          <% if(itensCarrinho[0].fotoCaminho === null){ %>
+            <div class="img-produto"></div>
+        
+        
+        <%}else{%>
+          <div class="img-produto"><img src="/<%- info[0].fotoCaminho %>" alt=""></div>
+        <%}%>
+            
 
             <div class="sub_info">
                 <h2><%= info[0].titulo %></h2>
