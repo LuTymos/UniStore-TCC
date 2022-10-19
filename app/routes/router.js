@@ -104,12 +104,30 @@ router.get('/carrinho', async function (req, res) {
     // buscando as informações usando o id do usuario
     info_usu = await funcoesDAO.buscarUsuEndereco(usu)
 
+    itensCarrinho = new Array()
+    
+    
+
+    for(i = 0; i < req.session.carrinho.length ; i++){
+
+        var id = req.session.carrinho[i]
+
+        console.log(id)
+
+        uniformesCarrinho = await funcoesDAO.buscarUniformesCarrinho(id)
+
+        itensCarrinho[i] = uniformesCarrinho
+
+    }
+
+    console.log(itensCarrinho)
+
     // renderizando com as informações recebidas do usu
-    res.render('pages/carrinho', { info_usu })
+    res.render('pages/carrinho', { info_usu})
 });
 
 router.get('/adicionarCarrinho/:id', (req, res) => {
-    console.log(req.params.id)
+    // console.log(req.params.id)
     if (req.session.carrinho) {
         if (req.session.carrinho.indexOf(req.params.id) < 0) {
             total = req.session.carrinho.length;
@@ -121,7 +139,7 @@ router.get('/adicionarCarrinho/:id', (req, res) => {
         req.session.carrinho[0] = req.params.id
     }
 
-    console.log(req.session.carrinho)
+
     res.redirect('/carrinho')
 })
 
@@ -133,93 +151,68 @@ router.get('/cadastrar_produto', function (req, res) {
 });
 
 
-
+// Multer
 var storagePasta = multer.diskStorage({
-    destination: (req, file, callBack)=>{
-    callBack(null, './app/public/img/temp/') // diretório de destino  
+    destination: (req, file, callBack) => {
+        callBack(null, './app/public/img/temp/') // diretório de destino  
     },
-    filename: (req, file, callBack) =>{
-    callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    filename: (req, file, callBack) => {
+        callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
 var upload = multer({ storage: storagePasta })
+// /////////
 router.post('/cadastroProduto',
-upload.single('file'),
-async (req, res) => {
+    upload.single('file'),
+    async (req, res) => {
 
-    if (!req.file) {
-        console.log("Falha no carregamento");
-    } else {
-       caminhoArquivo = "img/temp/"+req.file.filename;
+        if (!req.file) {
+            console.log("Falha no carregamento");
+        } else {
+            caminhoArquivo = "img/temp/" + req.file.filename;
 
-        var dadosForm = {
-            foto: null,
-            fotoCaminho: caminhoArquivo,
-            titulo: req.body.TituloProduto,
-            tamanho: req.body.tamanho,
-            cor: req.body.cor,
-            condicao: req.body.condicao,
-            contato: req.body.contato,
-            descricao: req.body.descricao,
-            valor: req.body.preco,
-            nome_instituicao: req.body.instituicao,
-            id_usu: req.session.id_usu,
+            var dadosForm = {
+                foto: null,
+                fotoCaminho: caminhoArquivo,
+                titulo: req.body.TituloProduto,
+                tamanho: req.body.tamanho,
+                cor: req.body.cor,
+                condicao: req.body.condicao,
+                contato: req.body.contato,
+                descricao: req.body.descricao,
+                valor: req.body.preco,
+                nome_instituicao: req.body.instituicao,
+                id_usu: req.session.id_usu,
+            }
+
+            cadastrar = await funcoesDAO.cadastroProduto(dadosForm);
+            res.redirect('/')
         }
-
-        cadastrar = await funcoesDAO.cadastroProduto(dadosForm);
-        res.redirect('/')
-    }
-})
+    })
 // /////////////////////////////
 
 // USUARIO
 
-router.get('/usuario', function (req, res) {
+router.get('/usuario', async function (req, res) {
 
-    var dadosUsu = {
-        id_usu: req.session.id_usu,
+    var usu = req.session.id_usu,
 
-    }
+        usuario = await funcoesDAO.buscarUsuEndereco(usu)
 
-    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
-        [dadosUsu.id_usu],
-        (error, results, fields) => {
-
-
-            if (error) {
-                res.json({ erro: "Falha ao acessar dados" })
-            }
-            res.render('pages/usu', { usuario: results })
-        })
+    res.render('pages/usu', { usuario })
 
 });
 
-router.get('/editar_informacao', function (req, res) {
-    var dadosUsu = {
-        id_usu: req.session.id_usu,
+router.get('/editar_informacao', async function (req, res) {
+    var usu = req.session.id_usu,
 
-    }
-    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
-        [dadosUsu.id_usu],
-        (error, results, fields) => {
-            // console.log(results);
-            if (error) {
-                res.json({ erro: "Falha ao acessar dados" })
-            }
+        usuario = await funcoesDAO.buscarUsuEndereco(usu)
 
-
-
-            res.render('pages/editinf', { usuario: results })
-        })
-
+    res.render('pages/editinf', { usuario })
 
 });
 
-router.post('/editar', (req, res) => {
-
-    var usu = {
-        id_usu: req.session.id_usu
-    }
+router.post('/editar', async (req, res) => {
 
     var dadosForm = {
         nome_usu: req.body.nu,
@@ -234,44 +227,24 @@ router.post('/editar', (req, res) => {
         bairo: req.body.bairo,
         id_usu: req.session.id_usu
     }
-    // console.log(dadosFormEnder)
-    // console.log(dadosForm)
-    conexao.query("SELECT * FROM unistore.usuario left join usuario_endereco on (usuario.id_usu = usuario_endereco.id_usu) where usuario.id_usu = ?",
-        [usu.id_usu],
-        (error, results, fields) => {
-            // console.log(results);
-            if (error) {
-                res.json({ erro: "Falha ao acessar dados" })
-            }
 
-            conexao.query(
-                "update usuario SET ? where id_usu = ?",
-                [dadosForm, usu.id_usu],
-                function (error, results, fields) {
-                    if (error) throw error;
-                }
-            )
+    var usu = req.session.id_usu,
 
-            if (results[0].rua == null) {
-                conexao.query(
-                    "insert into usuario_endereco SET ?",
-                    [dadosFormEnder, usu.id_usu],
-                    function (error, results, fields) {
-                        if (error) throw error;
-                    })
-            } else {
-                conexao.query(
-                    "update usuario_endereco SET ? where id_usu = ?",
-                    [dadosFormEnder, usu.id_usu],
-                    function (error, results, fields) {
-                        if (error) throw error;
-                    })
-            }
-            res.redirect('/usuario')
+        usuario = await funcoesDAO.buscarUsuEndereco(usu)
 
-        })
+    updateInfoUsu = await funcoesDAO.updateInfoUsu(dadosForm, usu)
+
+    if (usuario[0].rua == null) {
+        cadastrarEndereco = await funcoesDAO.cadastrarEndereco(dadosFormEnder)
+    } else {
+        updateInfoUsuEnder = await funcoesDAO.updateInfoUsuEnder(dadosFormEnder, usu)
+    }
+    res.redirect('/usuario')
 
 })
+
+
+
 // //////////////////////////////////////
 
 
@@ -286,37 +259,18 @@ router.get('/sair', (req, res) => {
 
 
 
-router.get('/produto/:id', (req, res) => {
+router.get('/produto/:id', async (req, res) => {
 
     var id_produto = req.params.id;
 
-    conexao.query(
-        "SELECT * FROM unistore.uniforme left join usuario on (uniforme.id_usu = usuario.id_usu) where id_produto = ?", [id_produto],
-        function (error, results, fields) {
+    info = await funcoesDAO.buscarUsuUniforme(id_produto)
 
 
+    res.render('pages/produto', { info })
 
-            res.render('pages/produto', { info: results, })
 
-        }
-    )
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;
