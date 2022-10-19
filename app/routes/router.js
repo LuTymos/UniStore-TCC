@@ -104,26 +104,34 @@ router.get('/carrinho', async function (req, res) {
     // buscando as informações usando o id do usuario
     info_usu = await funcoesDAO.buscarUsuEndereco(usu)
 
+    carrinho = req.session.carrinho
+
     itensCarrinho = new Array()
     
-    
+    if(req.session.carrinho){
 
     for(i = 0; i < req.session.carrinho.length ; i++){
 
-        var id = req.session.carrinho[i]
+        id = req.session.carrinho[i]
 
-        console.log(id)
+        // console.log(i)
 
-        uniformesCarrinho = await funcoesDAO.buscarUniformesCarrinho(id)
+        uniforme = await funcoesDAO.buscarUniformesCarrinho(id)
 
-        itensCarrinho[i] = uniformesCarrinho
+        itensCarrinho[i] = uniforme[0]
 
     }
 
-    console.log(itensCarrinho)
+    
+    
+    res.render('pages/carrinho', { info_usu, itensCarrinho, carrinho})
+
+}else{
+    res.render('pages/carrinho', { info_usu, carrinho})
+}
+   
 
     // renderizando com as informações recebidas do usu
-    res.render('pages/carrinho', { info_usu})
 });
 
 router.get('/adicionarCarrinho/:id', (req, res) => {
@@ -251,6 +259,10 @@ router.post('/editar', async (req, res) => {
 router.get('/vendedor', function (req, res) {
     res.render('pages/vend')
 });
+
+router.get('/pedido', function(req, res){
+    res.render('pages/pedido')
+})
 
 router.get('/sair', (req, res) => {
     req.session.destroy();

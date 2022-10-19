@@ -1,161 +1,182 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniStore</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/carrinho.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniStore</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon-16x16.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/slick-theme.css">
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/carrinho.css">
 </head>
+
 <body>
   <%-include ('../partial/header.ejs') %>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
-  
+    <% if(carrinho){ %>
+      <%console.log("-----tentando buscar o titulo do produto do indice 1-----")%>
+      <%console.log(itensCarrinho[0].titulo)%>
+        <%console.log("-----item com indice 1-----")%>
+          <%console.log(itensCarrinho[0])%>
+            <%console.log("-----itens do itens carrinho-----")%>
+              <%console.log(itensCarrinho)%>
+              
+                <% } %>
 
 
-    
-    <section class="carrinho container1">
+                  <section class="carrinho container1">
 
-        <div class="valor-mobile">
-            <h3>Total da compra: R$55,00</h3>
-            <div class="btns">
-                <button class="btn">Finalizar compra</button>
-            <button class="btn">Continuar comprando</button>
-            </div>
-        </div>
-
-
-
-        <div class="container">
-        <div class="box">
-        <div class="itens">
-          
-            <div class="item">
-                <div class="grupo1"></div>
-                <div class="img-item"></div>
-                <p class="nome-produto">Camiseta ITB Brásilio Floreres de Aze...</p>
-                <div class="grupo2">
-                <span class="preco">R$20,00</span>
-                <button class="btn">Excluir</button>
-                </div>
-            </div>
-           
-            <div class="item">
-                <div class="grupo1"></div>
-                <div class="img-item"></div>
-                <p class="nome-produto">Camiseta ITB Brásilio Floreres de Aze...</p>
-                <div class="grupo2">
-                <span class="preco">R$20,00</span>
-                <button class="btn">Excluir</button>
-                </div>
-            </div>
-
-            <div class="item">
-              <div class="grupo1"></div>
-              <div class="img-item"></div>
-              <p class="nome-produto">Camiseta ITB Brásilio Floreres de Aze...</p>
-              <div class="grupo2">
-              <span class="preco">R$20,00</span>
-              <button class="btn">Excluir</button>
-              </div>
-          </div>
-            
-        </div>
-        <% if ( info_usu[0].rua != null){ %>
-          <div class="endereco"><p>Endereço: </p> <p><%= info_usu[0].rua %>,<%= info_usu[0].numero %>, <%= info_usu[0].bairo %> </p> <a href="/editar_informacao">Editar></a></div>
-          <% }else{ %>
-            <div class="endereco"><p>Endereço: </p> <a href="/editar_informacao">Adicionar endereco</a></div>
-          <%}%>
-        
-    </div>
-
-        <div class="box-valor-desktop">
-            <h3>Total da compra: R$55,00</h3>
-            <div class="btns">
-            <a href="/metedoPagamento" class="btn">Finalizar compra</a>
-            <a href="/itens" class="btn">Continuar comprando</a>
-            </div>
-        </div>
-    </div>
-    </section>
-
-    <section class="more-products">
-        <div class="container1">
-            <h2>Você também pode gostar:</h2>
-            </div>
-                <div class="container1">
-                <div class="slide-produtos">
-                    <div class="box-produto">
-                      <div class="img-box"></div>
-                      <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                      <span class="preco">R$15,00</span>
-                    </div>
-                    <div class="box-produto">
-                      <div class="img-box"></div>
-                      <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                      <span class="preco">R$16,00</span>
-                    </div>
-                    <div class="box-produto">
-                      <div class="img-box"></div>
-                      <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                      <span class="preco">R$17,00</span>
-                    </div>
-                    <div class="box-produto">
-                      <div class="img-box"></div>
-                      <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                      <span class="preco">R$18,00</span>
-                    </div>
-                    <div class="box-produto">
-                      <div class="img-box"></div>
-                      <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                      <span class="preco">R$19,00</span>
-                    </div>
-                    <div class="box-produto">
-                        <div class="img-box"></div>
-                        <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                        <span class="preco">R$11,00</span>
+                    <div class="valor-mobile">
+                      <h3>Total da compra: R$55,00</h3>
+                      <div class="btns">
+                        <a href="/metodoPagamento" class="btnc">Finalizar compra</a>
+                        <a href="/itens" class="btnc">Continuar comprando</a>
                       </div>
-                      <div class="box-produto">
-                        <div class="img-box"></div>
-                        <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                        <span class="preco">R$12,00</span>
+                    </div>
+
+
+
+                    <div class="container">
+                      <div class="box">
+                        <div class="itens">
+                          <% if(carrinho){ %>
+                            <% for(i = 0; i < carrinho.length; i++){ %>
+
+                              <div class="item">
+                                <div class="grupo1"></div>
+                                <% if(itensCarrinho[i].fotoCaminho === null){ %>
+                                  <div class="img-item"></div>
+                              
+                              
+                              <%}else{%>
+                                <div class="img-item"><img src="/<%- itensCarrinho[i].fotoCaminho %>" alt=""></div>
+                              <%}%>
+                                
+                                <p class="nome-produto">
+                                  <%= itensCarrinho[i].titulo %>
+                                </p>
+                                <div class="grupo2">
+                                  <span class="preco">R$<%= itensCarrinho[i].valor %>,00</span>
+                                  <button class="btn">Excluir</button>
+                                </div>
+                              </div>
+                              <% } %>
+                                <% }else{ %>
+
+
+                                  <% } %>
+
+
+
+                        </div>
+                        <% if ( info_usu[0].rua !=null){ %>
+                          <div class="endereco">
+                            <p>Endereço: </p>
+                            <p>
+                              <%= info_usu[0].rua %>,<%= info_usu[0].numero %>, <%= info_usu[0].bairo %>
+                            </p> <a href="/editar_informacao">Editar></a>
+                          </div>
+                          <% }else{ %>
+                            <div class="endereco">
+                              <p>Endereço: </p> <a href="/editar_informacao">Adicionar endereco</a>
+                            </div>
+                            <%}%>
+
                       </div>
-                </div>
-            </div>
-    </section>
+
+                      <div class="box-valor-desktop">
+                        <h3>Total da compra: R$55,00</h3>
+                        <div class="btns">
+                          <a href="/metedoPagamento" class="btnc">Finalizar compra</a>
+                          <a href="/itens" class="btnc">Continuar comprando</a>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="more-products">
+                    <div class="container1">
+                      <h2>Você também pode gostar:</h2>
+                    </div>
+                    <div class="container1">
+                      <div class="slide-produtos">
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$15,00</span>
+                        </div>
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$16,00</span>
+                        </div>
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$17,00</span>
+                        </div>
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$18,00</span>
+                        </div>
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$19,00</span>
+                        </div>
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$11,00</span>
+                        </div>
+                        <div class="box-produto">
+                          <div class="img-box"></div>
+                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
+                          <span class="preco">R$12,00</span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
 
 
 
 
 
 
-    <footer>
-        <div class="container">
-          <ul>
-            <li><h3>UniStore</h3></li>
-            <li><h3>Quem Somos</h3></li>
-            <li><h3>Politica de Privacidade</h3></li>
-          </ul>
-          <div class="social">
-            <img src="img/instagram.png" alt="">
-            <img src="img/facebook-app-symbol.png" alt="">
-            <img src="img/twitter.png" alt="">
-          </div>
-        </div>
-      </footer>
+                  <footer>
+                    <div class="container">
+                      <ul>
+                        <li>
+                          <h3>UniStore</h3>
+                        </li>
+                        <li>
+                          <h3>Quem Somos</h3>
+                        </li>
+                        <li>
+                          <h3>Politica de Privacidade</h3>
+                        </li>
+                      </ul>
+                      <div class="social">
+                        <img src="img/instagram.png" alt="">
+                        <img src="img/facebook-app-symbol.png" alt="">
+                        <img src="img/twitter.png" alt="">
+                      </div>
+                    </div>
+                  </footer>
 
 
 
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="js/slick.min.js"></script>
-      <script src="js/slide.js"></script>
-      <script src="js/menu.js"></script>
-    </body>
-    </html>
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                  <script src="js/slick.min.js"></script>
+                  <script src="js/slide.js"></script>
+                  <script src="js/menu.js"></script>
+</body>
+
+</html>

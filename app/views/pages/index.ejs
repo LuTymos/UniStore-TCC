@@ -47,11 +47,17 @@
 
 <section class="vitrine-produtos">
   <div class="container">
-      <% for(i = 5; i < 9; i++){ %>
+      <% for(i = 0; i < 4; i++){ %>
+        
   <div class="box-produto">
     <a href="/produto/<%-produtos[i].id_produto%>">
-      <!-- <a href="/produto"> -->
-    <div class="img-box"></div>
+      <% if(produtos[i].fotoCaminho === null){ %>
+        <div class="img-box"></div>
+    
+    
+    <%}else{%>
+      <div class="img-box"><img src="/<%- produtos[i].fotoCaminho %>" alt=""></div>
+    <%}%>
     <p class="descricao"><%= produtos[i].titulo %></p>
     <span class="preco">R$<%= produtos[i].valor %></span>
   </a>
@@ -59,7 +65,7 @@
   <% } %>
   
 </div>
-<a href="/itens">Ver mais itens</a>
+<a class="buttona"href="/itens">Ver mais itens</a>
 </section>
 
 <footer>
