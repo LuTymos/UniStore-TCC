@@ -11,6 +11,11 @@
     background-color: #ccc;
 }
 
+.img-produto img{
+    width: 100%;
+    height: 100%;
+}
+
 .sub_info{
 width: 300px;
 margin: 20px auto;

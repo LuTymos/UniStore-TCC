@@ -369,6 +369,10 @@ section.vitrine-produtos {
         height: 100px;
         margin: 0 auto;
         background-color: #ccc; }
+        section.vitrine-produtos .container .box-produto .img-box img{
+          width: 100%;
+          height: 100%;
+          }
       section.vitrine-produtos .container .box-produto a p {
         text-align: center;
         margin: 20px 0; }
@@ -378,7 +382,9 @@ section.vitrine-produtos {
         bottom: 30px;
         left: 40%;
         }
-  section.vitrine-produtos button {
+  section.vitrine-produtos .buttona {
+    text-align: center;
+    padding: 8px 0;
     width: 160px;
     height: 40px;
     cursor: pointer;
@@ -389,7 +395,9 @@ section.vitrine-produtos {
     border: none;
     margin: 0 auto;
     display: block;
-    margin-top: 50px; }
+    margin-top: 50px;
+    text-decoration: none;
+  }
     section.vitrine-produtos button:hover {
       background-color: #d35806; }
 
