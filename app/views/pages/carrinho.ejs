@@ -18,21 +18,12 @@
 <body>
   <%-include ('../partial/header.ejs') %>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
-    <% if(carrinho){ %>
-      <%console.log("-----tentando buscar o titulo do produto do indice 1-----")%>
-      <%console.log(itensCarrinho[0].titulo)%>
-        <%console.log("-----item com indice 1-----")%>
-          <%console.log(itensCarrinho[0])%>
-            <%console.log("-----itens do itens carrinho-----")%>
-              <%console.log(itensCarrinho)%>
-              
-                <% } %>
+ 
 
 
                   <section class="carrinho container1">
 
                     <div class="valor-mobile">
-                      <h3>Total da compra: R$55,00</h3>
                       <div class="btns">
                         <a href="/metodoPagamento" class="btnc">Finalizar compra</a>
                         <a href="/itens" class="btnc">Continuar comprando</a>
@@ -44,30 +35,30 @@
                     <div class="container">
                       <div class="box">
                         <div class="itens">
-                          <% if(carrinho){ %>
-                            <% for(i = 0; i < carrinho.length; i++){ %>
-
-                              <div class="item">
-                                <div class="grupo1"></div>
-                                <% if(itensCarrinho[i].fotoCaminho === null){ %>
-                                  <div class="img-item"></div>
-                              
-                              
-                              <%}else{%>
-                                <div class="img-item"><img src="/<%- itensCarrinho[i].fotoCaminho %>" alt=""></div>
-                              <%}%>
-                                
-                                <p class="nome-produto">
-                                  <%= itensCarrinho[i].titulo %>
-                                </p>
-                                <div class="grupo2">
-                                  <span class="preco">R$<%= itensCarrinho[i].valor %>,00</span>
-                                  <button class="btn">Excluir</button>
-                                </div>
-                              </div>
-                              <% } %>
+                          <% if(!carrinho || carrinho == null){ %>
+                            
                                 <% }else{ %>
+                                  <% for(i = 0; i < carrinho.length; i++){ %>
 
+                                    <div class="item">
+                                      <div class="grupo1"></div>
+                                      <% if(itensCarrinho[i].fotoCaminho === null){ %>
+                                        <div class="img-item"></div>
+                                    
+                                    
+                                    <%}else{%>
+                                      <div class="img-item"><img src="/<%- itensCarrinho[i].fotoCaminho %>" alt=""></div>
+                                    <%}%>
+                                      
+                                      <p class="nome-produto">
+                                        <%= itensCarrinho[i].titulo %>
+                                      </p>
+                                      <div class="grupo2">
+                                        <span class="preco">R$<%= itensCarrinho[i].valor %>,00</span>
+                                        <button class="btn"><a href="/excluir/ <%-itensCarrinho[i].id_produto%>">Excluir</a></button>
+                                      </div>
+                                    </div>
+                                    <% } %>
 
                                   <% } %>
 
@@ -105,41 +96,23 @@
                     </div>
                     <div class="container1">
                       <div class="slide-produtos">
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$15,00</span>
-                        </div>
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$16,00</span>
-                        </div>
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$17,00</span>
-                        </div>
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$18,00</span>
-                        </div>
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$19,00</span>
-                        </div>
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$11,00</span>
-                        </div>
-                        <div class="box-produto">
-                          <div class="img-box"></div>
-                          <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                          <span class="preco">R$12,00</span>
-                        </div>
+                        <% for(i = 0; i < produtosCadastrados.length; i++){ %>
+        
+                          <div class="box-produto">
+                            <a href="/produto/<%-produtosCadastrados[i].id_produto%>">
+                              <% if(produtosCadastrados[i].fotoCaminho === null){ %>
+                                <div class="img-box"></div>
+                            
+                            
+                            <%}else{%>
+                              <div class="img-box"><img src="/<%- produtosCadastrados[i].fotoCaminho %>" alt=""></div>
+                            <%}%>
+                            <p class="descricao"><%= produtosCadastrados[i].titulo %></p>
+                            <span class="preco">R$<%= produtosCadastrados[i].valor %></span>
+                          </a>
+                          </div>
+                          <% } %>
+                        
                       </div>
                     </div>
                   </section>

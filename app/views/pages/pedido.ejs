@@ -24,8 +24,8 @@
         <section id="Quadrado">
           <div class="texto">
             <h3>Endereço de entrega:</h3>
-            <span><b>Rua adriano Augusto, 140</b></span>
-            <span><b>Barueri 06440-040</b></span>
+            <span><b><%= dadosUsu[0].rua %>, N° <%= dadosUsu[0].numero %>, <%= dadosUsu[0].bairo %></b></span>
+            <span><b>(<%= dadosUsu[0].cep %>)</b></span>
           </div>
           <button>
             Editar
@@ -38,10 +38,14 @@
           <div><input type="radio" id="Dinheiro" name="Pagamento" value="Dinheiro"><label for="Dinheiro">Dinheiro (pago na entrega do produto)</label></div>
           <div><input type="radio" id="Boleto Bancário" name="Pagamento" value="Boleto Bancário"><label for="Boleto Bancário">Boleto Bancário</label></div>
           <div><input type="radio" id="Pix" name="Pagamento" value="Pix"><label for="Pix">Pix</label></div>
-          <span id="Preço"><h3>Total: R$55,00</h3><button>Finalizar Pedido</button></span>
+          <span id="Preço"><button class="FP">Finalizar Pedido</button></span>
         </section>
 
-       
+       <div class="box-msg">
+         <h3>Pedido enviado para o vendedor(ra) <br> Logo ira te retornar!</h3>
+
+        <a href="/itens">Voltar as Compras!</a>
+       </div>
       
     </main>
 
@@ -64,5 +68,10 @@
       <script src="js/slick.min.js"></script>
       <script src="js/slide.js"></script>
       <script src="js/menu.js"></script>
+      <script>
+        $('.FP').click(function(){
+          $('.box-msg').fadeToggle()
+        })
+      </script>
 </body>
 </html>

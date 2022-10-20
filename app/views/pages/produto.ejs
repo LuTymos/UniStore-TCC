@@ -22,7 +22,7 @@
         
 
         <section class="info_produto">
-          <% if(itensCarrinho[0].fotoCaminho === null){ %>
+          <% if(info[0].fotoCaminho === null){ %>
             <div class="img-produto"></div>
         
         
@@ -62,41 +62,23 @@
         </div>
  
             <div class="slide-itens">
+              <% for(i = 0; i < produtosCadastrados.length; i++){ %>
+        
                 <div class="box-produto">
-                  <div class="img-box"></div>
-                  <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                  <span class="preco">R$15,00</span>
+                  <a href="/produto/<%-produtosCadastrados[i].id_produto%>">
+                    <% if(produtosCadastrados[i].fotoCaminho === null){ %>
+                      <div class="img-box"></div>
+                  
+                  
+                  <%}else{%>
+                    <div class="img-box"><img src="/<%- produtosCadastrados[i].fotoCaminho %>" alt=""></div>
+                  <%}%>
+                  <p class="descricao"><%= produtosCadastrados[i].titulo %></p>
+                  <span class="preco">R$<%= produtosCadastrados[i].valor %></span>
+                </a>
                 </div>
-                <div class="box-produto">
-                  <div class="img-box"></div>
-                  <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                  <span class="preco">R$16,00</span>
+                <% } %>
                 </div>
-                <div class="box-produto">
-                  <div class="img-box"></div>
-                  <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                  <span class="preco">R$17,00</span>
-                </div>
-                <div class="box-produto">
-                  <div class="img-box"></div>
-                  <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                  <span class="preco">R$18,00</span>
-                </div>
-                <div class="box-produto">
-                  <div class="img-box"></div>
-                  <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                  <span class="preco">R$19,00</span>
-                </div>
-                <div class="box-produto">
-                    <div class="img-box"></div>
-                    <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                    <span class="preco">R$11,00</span>
-                  </div>
-                  <div class="box-produto">
-                    <div class="img-box"></div>
-                    <p class="descricao">Shorts masculino ITB, Tamanho G, Usado</p>
-                    <span class="preco">R$12,00</span>
-                  </div>
             </div>
 </section>
 

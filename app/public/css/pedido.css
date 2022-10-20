@@ -12,7 +12,9 @@
 }
 #Caixas #Quadrado{
     padding: 20px 10px;
-    width: 420px;
+    width: 90%;
+    max-width: 480px;
+    margin: 0 auto;
     height: max-content;
     display: flex;
     justify-content: space-around;
@@ -33,6 +35,7 @@
    background-color: #1f6496;
    border: none;
    color: #fff;
+   cursor: pointer;
 }
 
 
@@ -41,7 +44,8 @@
 
 
 #Caixas #Retangulo{
-    width: 420px;
+    width: 90%;
+    max-width: 480px;
     height: 156px;
     display: flex;
     flex-direction: column;
@@ -66,6 +70,18 @@
     background-color: #205375;
     border: none;
     color: #fff;
+    cursor: pointer;
+}
+
+.box-msg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+    width: 350px;
+    padding: 20px 20px;
+    text-align: center;
+    background-color: white;
 }
 
 /*Final Caixa Retangulo*/

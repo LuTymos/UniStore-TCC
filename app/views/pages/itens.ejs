@@ -16,28 +16,7 @@
 <body>
     <%-include('../partial/header.ejs')%>
     <div class="barra-pesquisa-mobile"><input type="text"><img src="img/procurar.png" alt=""></div>
-    <div class="caixa">
-        <span>Filtros:</span>
-        <div class="filtros">
-        <select name="genero" id="genero">
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Infantil">Infantil</option>
-        </select>
-        <select name="cidade" id="cidade">
-            <option value="Barueri">Barueri</option>
-            <option value="Osasco">Osasco</option>
-            <option value="Carapicuiba">Carapicuiba</option>
-            <option value="Santana de Parnaiba">Santana de Parnaiba</option>
-        </select>
-        <select name="tamanho" id="tamanho">
-            <option value="P">P</option>
-            <option value="M">M</option>
-            <option value="G">G</option>
-        </select>
-        <input type="number" placeholder="Preço:" name="Preço" id="Preço">
-    </div>
-</div>
+   
 <div class="container">
 <% for(i = 0; i < produtos.length; i++){ %>
     <div class="box-produto">
