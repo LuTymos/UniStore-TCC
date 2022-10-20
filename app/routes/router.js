@@ -105,6 +105,7 @@ router.get('/carrinho', async function (req, res) {
     info_usu = await funcoesDAO.buscarUsuEndereco(usu)
 
     carrinho = req.session.carrinho
+    produtosCadastrados = await funcoesDAO.buscarUniformes()
 
     itensCarrinho = new Array()
     
@@ -124,15 +125,22 @@ router.get('/carrinho', async function (req, res) {
 
     
     
-    res.render('pages/carrinho', { info_usu, itensCarrinho, carrinho})
+    res.render('pages/carrinho', { info_usu, itensCarrinho, carrinho, produtosCadastrados})
 
 }else{
-    res.render('pages/carrinho', { info_usu, carrinho})
+    res.render('pages/carrinho', { info_usu, carrinho, buscarUniformes})
 }
    
 
     // renderizando com as informações recebidas do usu
 });
+
+router.get('/excluir/:id', (req, res)=>{
+    id = req.params.id
+    req.session.carrinho = carrinho
+    req.session.carrinho = carrinho.filter(carrinho => carrinho == id) 
+    res.redirect('/carrinho')
+})
 
 router.get('/adicionarCarrinho/:id', (req, res) => {
     // console.log(req.params.id)
@@ -260,8 +268,13 @@ router.get('/vendedor', function (req, res) {
     res.render('pages/vend')
 });
 
-router.get('/pedido', function(req, res){
-    res.render('pages/pedido')
+router.get('/pedido',async function(req, res){
+    usu = req.session.id_usu
+    console.log(usu)
+    dadosUsu = await funcoesDAO.buscarUsuEndereco(usu)
+    console.log(dadosUsu)
+
+    res.render('pages/pedido', {dadosUsu})
 })
 
 router.get('/sair', (req, res) => {
@@ -277,8 +290,8 @@ router.get('/produto/:id', async (req, res) => {
 
     info = await funcoesDAO.buscarUsuUniforme(id_produto)
 
-
-    res.render('pages/produto', { info })
+    produtosCadastrados = await funcoesDAO.buscarUniformes()
+    res.render('pages/produto', { info, produtosCadastrados })
 
 
 
