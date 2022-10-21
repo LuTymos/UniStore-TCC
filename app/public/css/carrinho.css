@@ -147,7 +147,17 @@ div.box-valor-desktop{
     padding: 15px ;
 }
 
+div.box-valor-desktop .btns .btnc{
+    margin: 5px 0;
+    width: 100%;
+    padding: 3px 5px;
+    height: 40px;
+    text-decoration: none;
+    display: block;
+}
+
 .btns{
+    height: 80px;
     width: 60%;
     margin: 0 auto;
 }
@@ -161,7 +171,7 @@ div.box-valor-desktop{
 
 .valor-mobile .btns{
     width: 100%;
-    margin: 0 auto;
+    margin: 5 auto;
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;

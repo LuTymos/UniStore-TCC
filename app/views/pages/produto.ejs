@@ -35,7 +35,11 @@
                 <h2><%= info[0].titulo %></h2>
                 <div class="wrap">
                     <p>R$<%= info[0].valor %>,00</p>
-                    <a href="/adicionarCarrinho/<%-info[0].id_produto%>">adicionar ao carrinho</a>
+                    <% if(autenticado.autenticado){ %>
+                      <a href="/adicionarCarrinho/<%-info[0].id_produto%>">adicionar ao carrinho</a>
+                    <%}else{%>
+                    <a href="/login">adicionar ao carrinho</a>
+                    <%}%>
                 </div>
             </div>
         </section>

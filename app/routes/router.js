@@ -136,9 +136,12 @@ router.get('/carrinho', async function (req, res) {
 });
 
 router.get('/excluir/:id', (req, res)=>{
-    id = req.params.id
-    req.session.carrinho = carrinho
-    req.session.carrinho = carrinho.filter(carrinho => carrinho == id) 
+    paramId = req.params.id
+    id = String(paramId)
+    
+    produtoCarrinho = req.session.carrinho.indexOf(id)
+    
+    req.session.carrinho.splice(produtoCarrinho, 1)
     res.redirect('/carrinho')
 })
 
@@ -270,9 +273,11 @@ router.get('/vendedor', function (req, res) {
 
 router.get('/pedido',async function(req, res){
     usu = req.session.id_usu
-    console.log(usu)
+
     dadosUsu = await funcoesDAO.buscarUsuEndereco(usu)
-    console.log(dadosUsu)
+
+    req.session.carrinho = []
+
 
     res.render('pages/pedido', {dadosUsu})
 })
