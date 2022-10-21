@@ -1,0 +1,6 @@
+id_produto,tamanho,condicao,titulo,foto,descricao,cor,valor,contato,nome_instituicao,id_usu,fotoCaminho
+28,G,seminova,"Camisas da chalupe ",NULL,"Camisas chalupe em bons estados",amarela,30.00,NULL,Chalupe,6,img/temp/file-1666315200457.jpeg
+29,M,usada,"Kit FIEB",NULL,"Kit de uniformes da FIEB usados mas em otimas condições ","Cinza e Branca",100.00,NULL,Fieb,7,img/temp/file-1666315471129.jpeg
+30,M,nova,"Shorts Mackenzie",NULL,"Shorts da instituição mackenzie, feita pelo Ateliê Eduardo Confecções e Bordados",Preta,25.00,NULL,Mackenzie,8,img/temp/file-1666315666599.jpeg
+31,infantil,seminova,"Kit Day Care",NULL,"Kit de uniformes da escola Day Care em boas condições, me chame no whats pelo numero de contato para mais informações","Branco e Roxo",100.00,NULL,"Day Care",9,img/temp/file-1666315897801.jpeg
+32,infantil,usada,"Uniformes Red Ballon",NULL,"Kit de dois uniformes feminino completos, com duas camisas e duas saias.","Branca e Vermelha",80.00,NULL,"Red Balloon",2,img/temp/file-1666316473173.jpg
