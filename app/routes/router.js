@@ -128,7 +128,7 @@ router.get('/carrinho', async function (req, res) {
     res.render('pages/carrinho', { info_usu, itensCarrinho, carrinho, produtosCadastrados})
 
 }else{
-    res.render('pages/carrinho', { info_usu, carrinho, buscarUniformes})
+    res.render('pages/carrinho', { info_usu, carrinho, produtosCadastrados})
 }
    
 
